@@ -14,7 +14,7 @@ public class DiceGame {
 		boolean Game = true;
 		Scanner CS = new Scanner(System.in);
 		RollDice newDice = new RollDice();
-		int asd = 0;
+	
 		while(Game){
 			String i = CS.nextLine();
 			if(i.equals("end")){
