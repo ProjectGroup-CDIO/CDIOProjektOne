@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class DiceGame {
 
-	//wooooloooololololololollolololololololol
 	public static void main(String[] args) {
 		System.out.println("This is a game, roll the dice if you are player one");
 		int playerOnePoints = 0;
