@@ -16,6 +16,7 @@ public class DiceGame {
 		RollDice newDice = new RollDice();
 		
 		//Jeg skriver noget her
+		//Jeg skriver mer eher
 	
 		while(Game){
 			String i = CS.nextLine();
