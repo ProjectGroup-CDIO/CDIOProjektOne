@@ -21,6 +21,10 @@ public class DiceGame {
 		//a new instance of the class Die is initiallized
 		Die newDice = new Die();
 		
+		//Jeg skriver noget her
+		//Jeg skriver mer eher
+		//mere her 
+		
 		//ABC ABC ABCC CIKAJSJDLKJALKSJDLKJAKL
 		//ajslkdjajsdlas
 		while(Game){
@@ -53,6 +57,7 @@ public class DiceGame {
 		
 		}
 	}
+
 }
 	
 
