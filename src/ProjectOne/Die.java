@@ -2,7 +2,7 @@ package ProjectOne;
 
 import java.util.Random;
 
-public class RollDice {
+public class Die {
 	
 	Random rand = new Random();
 	//+1 for else it would be 0 - 5

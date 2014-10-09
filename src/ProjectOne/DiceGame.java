@@ -7,13 +7,19 @@ public class DiceGame {
 
 	public static void main(String[] args) {
 		System.out.println("This is a game, roll the dice if you are player one");
+		//Here each players points are stored as a variable int
 		int playerOnePoints = 0;
 		int playerTwoPoints = 0;
+		// these two variables are used to determine which players turn it is
 		boolean playerOne = true;
 		boolean playerTwo = false;
+		//This variable is used to determine wether or not the game is 
+		//still active
 		boolean Game = true;
+		// the scanner is activated. 
 		Scanner CS = new Scanner(System.in);
-		RollDice newDice = new RollDice();
+		//a new instance of the class Die is initiallized
+		Die newDice = new Die();
 		
 		//ABC ABC ABCC CIKAJSJDLKJALKSJDLKJAKL
 		//ajslkdjajsdlas
@@ -24,8 +30,8 @@ public class DiceGame {
 				System.out.println(playerTwoPoints);
 			}else if(i.equals("roll")){
 				System.out.println("rolling the dice");
-				int DiceOne = rollDice();
-				int DiceTwo = rollDice();
+				int DiceOne = newDice.rollDice();
+				int DiceTwo = newDice.rollDice();
 				System.out.println("First Die: "+ DiceOne + " Second Die: " + DiceTwo);
 				if(playerOne){
 					playerOnePoints =playerOnePoints + DiceOne+DiceTwo;
@@ -44,13 +50,9 @@ public class DiceGame {
 			else{
 				System.out.println("Not a valid input! Either roll or end.");
 			}
+		
 		}
 	}
-
-	public static int rollDice(){
-		Random rand = new Random();
-		//+1 for else it would be 0 - 5
-		int dice = rand.nextInt(6) +1; 
-		return dice;
-	}
 }
+	
+
