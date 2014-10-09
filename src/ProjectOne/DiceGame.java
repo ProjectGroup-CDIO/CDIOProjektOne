@@ -52,5 +52,7 @@ public class DiceGame {
 		//+1 for else it would be 0 - 5
 		int dice = rand.nextInt(6) +1; 
 		return dice;
+		
+		//test test test
 	}
 }
