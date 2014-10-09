@@ -55,7 +55,7 @@ public class DiceGame {
 						playerOnePoints = playerOnePoints + DiceOne+DiceTwo;
 					}
 				}
-				if(playerTwo){
+				else if(playerTwo){
 					if(DiceOne == DiceTwo){
 						isPair(DiceOne, DiceTwo);
 					}else{
@@ -69,7 +69,7 @@ public class DiceGame {
 						playerTwoPoints = playerTwoPoints + DiceOne+DiceTwo;
 
 					}
-					newDice.rollDice();
+					//newDice.rollDice();
 
 				}
 				System.out.println("playerOnePoints: "+ playerOnePoints);
@@ -109,9 +109,8 @@ public class DiceGame {
 				Game = false;
 
 			}
+			wasLastRollDoubleSix = true;
 		}
-
-
 		if(playerTwo){
 			if(a == b){
 				playerTwo = true;
@@ -120,13 +119,15 @@ public class DiceGame {
 			/*if(a == 1){
 					playerTwoPoints = 0;
 				}*/
-			else if( a == 6 && wasLastRollDoubleSix){
-				System.out.println("Player Two has won!!!!!1111ELEVEN");
+			else if( a == 6){
+				if(wasLastRollDoubleSix){
+					System.out.println("Player One has won!!!!!1111ELEVEN");
+					Game = false;
+
+				}
+				//fejl ved 66666666 - rettes senere
+				wasLastRollDoubleSix = true;
 			}
-
-
-
-
 		}
 
 	}
