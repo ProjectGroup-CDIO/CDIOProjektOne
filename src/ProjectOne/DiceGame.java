@@ -14,7 +14,9 @@ public class DiceGame {
 		boolean Game = true;
 		Scanner CS = new Scanner(System.in);
 		RollDice newDice = new RollDice();
-	
+		
+		//ABC ABC ABCC CIKAJSJDLKJALKSJDLKJAKL
+		//ajslkdjajsdlas
 		while(Game){
 			String i = CS.nextLine();
 			if(i.equals("end")){
