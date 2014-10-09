@@ -17,6 +17,7 @@ public class DiceGame {
 		
 		//Jeg skriver noget her
 		//Jeg skriver mer eher
+		//mere her 
 	
 		while(Game){
 			String i = CS.nextLine();
