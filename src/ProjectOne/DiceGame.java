@@ -14,6 +14,8 @@ public class DiceGame {
 		boolean Game = true;
 		Scanner CS = new Scanner(System.in);
 		RollDice newDice = new RollDice();
+		
+		//Jeg skriver noget her
 	
 		while(Game){
 			String i = CS.nextLine();
