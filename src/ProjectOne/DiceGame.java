@@ -10,7 +10,7 @@ public class DiceGame {
 
 	static boolean playerOne = true;
 	static boolean playerTwo = false; // these two variables are used to determine which players turn it is
-	
+
 	static boolean wasLastRollDoubleSix = false;
 
 	static boolean Game = true; /*This variable is used to determine whether or not the game is 
@@ -50,6 +50,7 @@ public class DiceGame {
 					playerTwo = false;
 					newDice.rollDice();
 				}
+				isPair(DiceOne, DiceTwo);
 
 				System.out.println("playerOnePoints: "+ playerOnePoints);
 				System.out.println("playerTwoPoints: "+ playerTwoPoints);
@@ -71,28 +72,41 @@ public class DiceGame {
 	}
 
 
-		public void isPair(int a, int b){
-			if(playerOne){
-				if(a == b){
-					if(a == 1){
-						playerOnePoints = 0;
-					}else if( a == 6 && wasLastRollDoubleSix){
-						System.out.println("Player One has won!!!!!1111ELEVEN");
-					}
-			
-						
-					}
-
-					}
-
+	public static void isPair(int a, int b){
+		if(playerOne){
+			if(a == b){
+				playerOne = true;
+				if(a == 1){
+					playerOnePoints = 0;
+				}else if( a == 6 && wasLastRollDoubleSix){
+					System.out.println("Player One has won!!!!!1111ELEVEN");
 				}
 			}
+		}
+		if(playerTwo){
+			if(a == b){
+				playerTwo = true;
+				if(a == 1){
+					playerTwoPoints = 0;
+				}else if( a == 6 && wasLastRollDoubleSix){
+					System.out.println("Player Two has won!!!!!1111ELEVEN");
+				}
 
 
 
 
-		
-	
+			}
+
+		}
+
+	}
+}
+
+
+
+
+
+
 
 
 
