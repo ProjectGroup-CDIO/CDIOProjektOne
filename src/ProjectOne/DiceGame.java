@@ -40,29 +40,38 @@ public class DiceGame {
 				int DiceOne = newDice.rollDice();
 				int DiceTwo = newDice.rollDice();
 				System.out.println("First Die: "+ DiceOne + " Second Die: " + DiceTwo);
+
 				if(playerOne){
 					if(DiceOne == DiceTwo){
 						isPair(DiceOne, DiceTwo);
 					}else{
-					playerTwo = true;
-					playerOne = false;
+						playerTwo = true;
+						playerOne = false;
 					}
+
 					if(DiceOne == DiceTwo && DiceOne == 1){
 						playerOnePoints = 0;
-					}else
-					playerOnePoints = playerOnePoints + DiceOne+DiceTwo;
-				 if(playerTwo){
+					}else{
+						playerOnePoints = playerOnePoints + DiceOne+DiceTwo;
+					}
+				}
+				if(playerTwo){
 					if(DiceOne == DiceTwo){
 						isPair(DiceOne, DiceTwo);
 					}else{
-					playerOne = true;
-					playerTwo = false;
+						playerOne = true;
+						playerTwo = false;
 					}
-					playerTwoPoints = playerTwoPoints + DiceOne+DiceTwo;
-					//newDice.rollDice();
-				}
-				
 
+					if(DiceOne == DiceTwo && DiceOne == 1){
+						playerTwoPoints = 0;
+					}else{
+						playerTwoPoints = playerTwoPoints + DiceOne+DiceTwo;
+
+					}
+					newDice.rollDice();
+
+				}
 				System.out.println("playerOnePoints: "+ playerOnePoints);
 				System.out.println("playerTwoPoints: "+ playerTwoPoints);
 			}
@@ -74,10 +83,12 @@ public class DiceGame {
 
 
 
+
 	public static void isPlayer(boolean a, boolean b){
 		if(a){
 			System.out.println("Player ones turn.");
-		}if(b){
+		}
+		if(b){
 			System.out.println("Player twos turn.");
 		}
 	}
@@ -85,39 +96,43 @@ public class DiceGame {
 
 	public static void isPair(int a, int b){
 		if(playerOne){
-			if(a == b){
+			if(a == b)
 				playerOne = true;
-				playerTwo = false;
-				/*if(a == 1){
+			playerTwo = false;
+		}
+		/*if(a == 1){
 					playerOnePoints = 0;
-				}*/else if(a == 6){
-					if(wasLastRollDoubleSix){
-						System.out.println("Player One has won!!!!!1111ELEVEN");
-						Game = false;
-						
-					}
-				}
+				}*/
+		else if(a == 6){
+			if(wasLastRollDoubleSix){
+				System.out.println("Player One has won!!!!!1111ELEVEN");
+				Game = false;
+
 			}
 		}
+
+
 		if(playerTwo){
 			if(a == b){
 				playerTwo = true;
 				playerOne = false;
-				/*if(a == 1){
-					playerTwoPoints = 0;
-				}*/else if( a == 6 && wasLastRollDoubleSix){
-					System.out.println("Player Two has won!!!!!1111ELEVEN");
-				}
-
-
-
-
 			}
+			/*if(a == 1){
+					playerTwoPoints = 0;
+				}*/
+			else if( a == 6 && wasLastRollDoubleSix){
+				System.out.println("Player Two has won!!!!!1111ELEVEN");
+			}
+
+
+
 
 		}
 
 	}
+
 }
+
 
 
 
