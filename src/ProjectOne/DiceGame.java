@@ -5,20 +5,23 @@ import java.util.Scanner;
 
 public class DiceGame {
 
+	static int playerOnePoints = 0;
+	static int playerTwoPoints = 0; //Here each players points are stored as a variable int
+
+	static boolean playerOne = true;
+	static boolean playerTwo = false; // these two variables are used to determine which players turn it is
+	
+	static boolean wasLastRollDoubleSix = false;
+
+	static boolean Game = true; /*This variable is used to determine whether or not the game is 
+	still active*/
+
 	public static void main(String[] args) {
 		System.out.println("This is a game, roll the dice if you are player one");
-		int playerOnePoints = 0;
-		int playerTwoPoints = 0; //Here each players points are stored as a variable int
-
-		boolean playerOne = true;
-		boolean playerTwo = false; // these two variables are used to determine which players turn it is
-
-		boolean Game = true; /*This variable is used to determine wether or not the game is 
-		still active*/
 
 		Scanner CS = new Scanner(System.in); // the scanner is activated. 
 
-		Die newDice = new Die(); //a new instance of the class Die is initiallized
+		Die newDice = new Die(); //a new instance of the class Die is initialized
 
 
 		while(Game){
@@ -31,8 +34,6 @@ public class DiceGame {
 				System.out.println(playerTwoPoints);
 				Game = false;
 				//break; 
-
-
 
 			}else if(i.equals("roll")){
 				System.out.println("rolling the dice");
@@ -61,26 +62,37 @@ public class DiceGame {
 
 
 
-	public void isPlayer(boolean a, boolean b){
+	public static void isPlayer(boolean a, boolean b){
 		if(a){
 			System.out.println("Player ones turn.");
 		}if(b){
 			System.out.println("Player twos turn.");
 		}
+	}
 
-		public void isPair(int a, int b, boolean c, boolean ){
-			if(c){
+
+		public void isPair(int a, int b){
+			if(playerOne){
 				if(a == b){
 					if(a == 1){
+						playerOnePoints = 0;
+					}else if( a == 6 && wasLastRollDoubleSix){
+						System.out.println("Player One has won!!!!!1111ELEVEN");
+					}
+			
+						
+					}
 
 					}
+
 				}
-
-
-
-
 			}
-		}
+
+
+
+
+		
+	
 
 
 
