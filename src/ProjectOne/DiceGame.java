@@ -23,51 +23,57 @@ public class DiceGame {
 
 		while(Game){
 			System.out.println("Write 'roll' to roll. \nWrite 'end' to end game and view score.");
+			isPlayer(playerOne,playerTwo);
 			String i = CS.nextLine();
+
 			if(i.equals("end")){
 				System.out.println(playerOnePoints);
 				System.out.println(playerTwoPoints);
 				Game = false;
 				//break; 
-			}
-			if(playerOne){
-				System.out.println("Player ones turn.");
-			}if(playerTwo){
-				System.out.println("Player twos turn.");
-			}
-		}else if(i.equals("roll")){
-			System.out.println("rolling the dice");
-			int DiceOne = newDice.rollDice();
-			int DiceTwo = newDice.rollDice();
-			System.out.println("First Die: "+ DiceOne + " Second Die: " + DiceTwo);
-			if(playerOne){
-				playerOnePoints = playerOnePoints + DiceOne+DiceTwo;
-				playerTwo = true;
-				playerOne = false;
-			}else if(playerTwo){
-				playerTwoPoints = playerTwoPoints + DiceOne+DiceTwo;
-				playerOne = true;
-				playerTwo = false;
-				newDice.rollDice();
-			}
-
-			System.out.println("playerOnePoints: "+ playerOnePoints);
-			System.out.println("playerTwoPoints: "+ playerTwoPoints);
-		}
-		else{
-			System.out.println("Not a valid input! Either roll or end.");
-		}
 
 
-		public void isPlayer(){
-			if(playerOne){
-				System.out.println("Player ones turn.");
-			}if(playerTwo){
-				System.out.println("Player twos turn.");
+
+			}else if(i.equals("roll")){
+				System.out.println("rolling the dice");
+				int DiceOne = newDice.rollDice();
+				int DiceTwo = newDice.rollDice();
+				System.out.println("First Die: "+ DiceOne + " Second Die: " + DiceTwo);
+				if(playerOne){
+					playerOnePoints = playerOnePoints + DiceOne+DiceTwo;
+					playerTwo = true;
+					playerOne = false;
+				}else if(playerTwo){
+					playerTwoPoints = playerTwoPoints + DiceOne+DiceTwo;
+					playerOne = true;
+					playerTwo = false;
+					newDice.rollDice();
+				}
+
+				System.out.println("playerOnePoints: "+ playerOnePoints);
+				System.out.println("playerTwoPoints: "+ playerTwoPoints);
+			}
+			else{
+				System.out.println("Not a valid input! Either roll or end.");
 			}
 		}
 	}
+
+
+
+	public void isPlayer(boolean a, boolean b){
+		if(a){
+			System.out.println("Player ones turn.");
+		}if(b){
+			System.out.println("Player twos turn.");
+		}
+
+
+
+	}
 }
+
+
 
 
 
