@@ -68,10 +68,19 @@ public class DiceGame {
 			System.out.println("Player twos turn.");
 		}
 
+		public void isPair(int a, int b, boolean c, boolean ){
+			if(c){
+				if(a == b){
+					if(a == 1){
+
+					}
+				}
 
 
-	}
-}
+
+
+			}
+		}
 
 
 
