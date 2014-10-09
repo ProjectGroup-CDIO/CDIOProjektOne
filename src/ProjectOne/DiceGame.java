@@ -69,7 +69,7 @@ public class DiceGame {
 						playerTwoPoints = playerTwoPoints + DiceOne+DiceTwo;
 
 					}
-					//newDice.rollDice();
+
 
 				}
 				System.out.println("playerOnePoints: "+ playerOnePoints);
