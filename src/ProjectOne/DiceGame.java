@@ -27,7 +27,8 @@ public class DiceGame {
 			if(i.equals("end")){
 				System.out.println(playerOnePoints);
 				System.out.println(playerTwoPoints);
-				break;
+				Game = false;
+				//break; 
 			}else if(i.equals("roll")){
 				System.out.println("rolling the dice");
 				int DiceOne = newDice.rollDice();
