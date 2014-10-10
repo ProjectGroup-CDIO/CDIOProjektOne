@@ -13,7 +13,7 @@ public class DiceGame {
 	static boolean wasLastRollDoubleSix = false;
 
 	static boolean Game = true; /*This variable is used to determine whether or not the game is 
-	still active*/
+	                              still active*/
 
 	
 		
@@ -26,7 +26,7 @@ public class DiceGame {
 
 
 		while(Game){
-			System.out.println("Write 'roll' to roll. \nWrite 'end' to end game and view score.");
+			System.out.println("Write 'r' to roll. \nWrite 'end' to end game and view score.");
 			isPlayer(playerOne,playerTwo);
 			String i = CS.nextLine();
 
@@ -36,7 +36,7 @@ public class DiceGame {
 				Game = false;
 				//break; 
 
-			}else if(i.equals("roll")){
+			}else if(i.equals("r")){
 				System.out.println("rolling the dice");
 				int DiceOne = newDice.rollDice();
 				int DiceTwo = newDice.rollDice();
