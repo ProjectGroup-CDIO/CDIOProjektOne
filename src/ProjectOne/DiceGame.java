@@ -11,8 +11,8 @@ public class DiceGame {
 	static boolean playerTwo = false; // these two variables are used to determine which players turn it is
 	static boolean WinOne = false;
 	static boolean WinTwo = false;
-	static boolean WonOne = false;
-	static boolean WonTwo = false;
+	static boolean confirmVicOne = false;
+	static boolean confirmVicTwo = false;
 	
 	static boolean wasLastRollDoubleSix = false;
 
@@ -48,14 +48,14 @@ public class DiceGame {
 
 				if(playerOne){
 					if(DiceOne == DiceTwo && playerOnePoints >= 40 && DiceOne!=1){
-						WonOne = true;
+						confirmVicOne = true;
 						isPair(DiceOne, DiceTwo);
 					}
 					else if(DiceOne == DiceTwo && playerOnePoints < 40){
 						isPair(DiceOne, DiceTwo);
 					}
 					else{
-						if (WonTwo){
+						if (confirmVicTwo){
 							Game = false;
 						}
 						playerTwo = true;
@@ -70,17 +70,14 @@ public class DiceGame {
 					}
 					if(DiceOne == DiceTwo && DiceOne == 6){
 						if(WinOne){
-							WonOne = true;
+							confirmVicOne = true;
 							playerTwo = true;
 							playerOne = false;
-							if(playerOne){
-								if(WonOne){
-									Game = false;
-								}
+							if (confirmVicTwo == true){
+								Game = false;
 							}
 						}
-						else
-						{
+						else{
 							WinOne = true;
 							isPair(DiceOne, DiceTwo);
 						}
@@ -88,14 +85,14 @@ public class DiceGame {
 				}
 				else if(playerTwo){
 					if(DiceOne == DiceTwo && playerTwoPoints >= 40 && DiceOne!=1){
-						WonTwo = true;
+						confirmVicTwo = true;
 						isPair(DiceOne, DiceTwo);
 					}
 					else if(DiceOne == DiceTwo && playerTwoPoints < 40){
 						isPair(DiceOne, DiceTwo);
 					}
 					else{
-						if (WonOne){
+						if (confirmVicOne){
 							Game = false;
 						}
 						playerOne = true;
@@ -110,16 +107,17 @@ public class DiceGame {
 					}
 					if(DiceOne == DiceTwo && DiceOne == 6){
 						if(WinTwo){
-							WonTwo = true;
-							if (WonOne == true){
+							confirmVicTwo = true;
+							if (confirmVicOne == true){
 								Game = false;
 							}
-							playerTwo = true;
-							playerOne = false;
+							playerTwo = false;
+							playerOne = true;
 						}
 						else
 						{
 							WinTwo = true;
+							isPair(DiceOne, DiceTwo);
 						}
 					}
 				}
@@ -130,17 +128,18 @@ public class DiceGame {
 				System.out.println("Not a valid input! Either roll or end.");
 			}
 		}
+		
 		if (Game != true)
 		{
-			if(playerOnePoints > playerTwoPoints && WonOne == true)
+			if( confirmVicOne  && !confirmVicTwo || (playerTwoPoints < playerOnePoints && confirmVicOne))
 			{
 				System.out.println("PlayerOne Won");
 			}
-			if(playerOnePoints < playerTwoPoints && WonTwo == true)
+			if((confirmVicTwo && !confirmVicOne ) || (playerOnePoints < playerTwoPoints && confirmVicTwo))
 			{
 				System.out.println("PlayerTwo Won");
 			}
-			if(playerOnePoints == playerTwoPoints)
+			if(playerOnePoints == playerTwoPoints && confirmVicOne == true && confirmVicTwo == true )
 			{
 				System.out.println("Draw");
 			}
