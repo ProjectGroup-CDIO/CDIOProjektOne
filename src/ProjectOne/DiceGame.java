@@ -3,7 +3,6 @@ package ProjectOne;
 import java.util.Scanner;
 
 public class DiceGame {
-
 	static int playerOnePoints = 0;
 	static int playerTwoPoints = 0; //Here each players points are stored as a variable int
 
@@ -15,8 +14,8 @@ public class DiceGame {
 	static boolean Game = true; /*This variable is used to determine whether or not the game is 
 	still active*/
 
-	
-		
+
+
 	public static void main(String[] args) {
 		System.out.println("This is a game, roll the dice if you are player one");
 
@@ -70,8 +69,6 @@ public class DiceGame {
 						playerTwoPoints = playerTwoPoints + DiceOne+DiceTwo;
 
 					}
-
-
 				}
 				System.out.println("playerOnePoints: "+ playerOnePoints);
 				System.out.println("playerTwoPoints: "+ playerTwoPoints);
@@ -81,9 +78,6 @@ public class DiceGame {
 			}
 		}
 	}
-
-
-
 
 	public static void isPlayer(boolean a, boolean b){
 		if(a){
@@ -99,11 +93,8 @@ public class DiceGame {
 		if(playerOne){
 			if(a == b)
 				playerOne = true;
-			playerTwo = false;
+				playerTwo = false;
 		}
-		/*if(a == 1){
-					playerOnePoints = 0;
-				}*/
 		else if(a == 6){
 			if(wasLastRollDoubleSix){
 				System.out.println("Player One has won!!!!!1111ELEVEN");
@@ -117,9 +108,7 @@ public class DiceGame {
 				playerTwo = true;
 				playerOne = false;
 			}
-			/*if(a == 1){
-					playerTwoPoints = 0;
-				}*/
+		
 			else if( a == 6){
 				if(wasLastRollDoubleSix){
 					System.out.println("Player One has won!!!!!1111ELEVEN");
