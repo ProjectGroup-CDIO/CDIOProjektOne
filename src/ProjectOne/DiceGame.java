@@ -1,6 +1,7 @@
 package ProjectOne;
 
 import java.util.Scanner;
+import boundaryToMatador.GUI;
 
 public class DiceGame {
 
@@ -77,7 +78,7 @@ public class DiceGame {
 				System.out.println("playerTwoPoints: "+ playerTwoPoints);
 			}
 			else{
-				System.out.println("Not a valid input! Either roll or end.");
+				System.out.println("Not a valid input! Either r or end.");
 			}
 		}
 	}
