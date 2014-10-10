@@ -15,6 +15,9 @@ public class DiceGame {
 	static boolean Game = true; /*This variable is used to determine whether or not the game is 
 	still active*/
 
+	
+	//her starter det hele
+	
 	public static void main(String[] args) {
 		System.out.println("This is a game, roll the dice if you are player one");
 
