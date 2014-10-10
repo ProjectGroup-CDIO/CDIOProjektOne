@@ -38,9 +38,10 @@ public class DiceGame {
 				//break; 
 
 			}else if(i.equals("r")){
-				System.out.println("rolling the dice");
+				System.out.println("Rolling the dices");
 				int DiceOne = newDice.rollDice();
 				int DiceTwo = newDice.rollDice();
+			//	GUI.setDice(DiceOne, DiceTwo);
 				System.out.println("First Die: "+ DiceOne + " Second Die: " + DiceTwo);
 
 				if(playerOne){
@@ -74,8 +75,8 @@ public class DiceGame {
 
 
 				}
-				System.out.println("playerOnePoints: "+ playerOnePoints);
-				System.out.println("playerTwoPoints: "+ playerTwoPoints);
+				System.out.println("Player One Points: "+ playerOnePoints);
+				System.out.println("Player Two Points: "+ playerTwoPoints);
 			}
 			else{
 				System.out.println("Not a valid input! Either r or end.");
