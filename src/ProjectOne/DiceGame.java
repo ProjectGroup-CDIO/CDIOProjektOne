@@ -16,8 +16,7 @@ public class DiceGame {
 	still active*/
 
 	
-	//her sta
-	
+		
 	public static void main(String[] args) {
 		System.out.println("This is a game, roll the dice if you are player one");
 
