@@ -8,10 +8,10 @@ public class Tests {
 		
 		
 		newgame.diceChecks(6, 6);
-		newgame.winCheckOneAndTwo();
+		System.out.println("playerOnePoints: "+ newgame.playerOnePoints);
+		System.out.println("playerTwoPoints: "+ newgame.playerTwoPoints);
 		newgame.diceChecks(6, 6);
-		newgame.winCheckOneAndTwo();
-		
+		System.out.println("playerOnePoints: "+ newgame.playerOnePoints);
+		System.out.println("playerTwoPoints: "+ newgame.playerTwoPoints);
 	}
-
 }
