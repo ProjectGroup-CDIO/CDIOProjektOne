@@ -10,7 +10,7 @@ public class DiceGame {
 	static boolean playerTwo = false; // these two variables are used to determine which players turn it is
 
 	static boolean winOne = false;
-	static boolean winTwo = false;
+	static boolean winTwo = false; // booleans for determining if player one and two has completed the game
 
 	static boolean wasLastRollDoubleSix = false;
 
@@ -39,25 +39,11 @@ public class DiceGame {
 				//break; 
 
 			}else if(i.equals("roll")){
-				System.out.println("rolling the dice");
+				
 				int DiceOne = newDice.rollDice();
 				int DiceTwo = newDice.rollDice();
-				System.out.println("First Die: "+ DiceOne + " Second Die: " + DiceTwo);
 				diceChecks(DiceOne, DiceTwo);
-				
-				if(winOne && winTwo){
-					System.out.println("its a draw! now checking each players points");
-					//method for comparing players points and output who won
-					Game = false;
-				}else if( winTwo){
-					System.out.println("Player two has won!");
-					Game = false;
-				}else if(winOne){
-					System.out.println("Player one has won!");
-					Game = false;
-				}
-				System.out.println("playerOnePoints: "+ playerOnePoints);
-				System.out.println("playerTwoPoints: "+ playerTwoPoints);
+				winCheckOneAndTwo();
 			}
 			else{
 				System.out.println("Not a valid input! Either roll or end.");
@@ -65,7 +51,25 @@ public class DiceGame {
 		}
 	}
 
+	public static void winCheckOneAndTwo() {
+		if(winOne && winTwo){
+			System.out.println("its a draw! now checking each players points");
+			//method for comparing players points and output who won
+			Game = false;
+		}else if( winTwo){
+			System.out.println("Player two has won!");
+			Game = false;
+		}else if(winOne){
+			System.out.println("Player one has won!");
+			Game = false;
+		}
+		System.out.println("playerOnePoints: "+ playerOnePoints);
+		System.out.println("playerTwoPoints: "+ playerTwoPoints);
+	}
+
 	public static void diceChecks(int DiceOne, int DiceTwo) {
+		System.out.println("rolling the dice");
+		System.out.println("First Die: "+ DiceOne + " Second Die: " + DiceTwo);
 		if(playerOne){
 			if(DiceOne == DiceTwo){
 				isPair(DiceOne, DiceTwo);
@@ -80,8 +84,7 @@ public class DiceGame {
 			}
 			if(DiceOne != DiceTwo){
 				wasLastRollDoubleSix = false;
-					
-				}
+			}
 		}
 		else if(playerTwo){
 			if(DiceOne == DiceTwo){
@@ -97,8 +100,8 @@ public class DiceGame {
 
 			}
 			if(DiceOne != DiceTwo){
-			wasLastRollDoubleSix = false;
-				
+				wasLastRollDoubleSix = false;
+
 			}
 		}
 	}
@@ -114,12 +117,13 @@ public class DiceGame {
 
 
 	public static void isPair(int a, int b){
+		
 		if(playerOne){
 			if(a == b)
 				playerOne = true;
 			playerTwo = false;
 		}
-		else if(a == 6){
+		 if(a == 6){
 			if(wasLastRollDoubleSix){
 				System.out.println("Player One has won!!!!!1111ELEVEN");
 				winOne = true;
@@ -133,7 +137,7 @@ public class DiceGame {
 				playerOne = false;
 			}
 
-			else if( a == 6){
+			if( a == 6){
 				if(wasLastRollDoubleSix){
 					System.out.println("Player One has won!!!!!1111ELEVEN");
 					winTwo = true;
