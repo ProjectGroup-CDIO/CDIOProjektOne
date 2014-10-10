@@ -9,8 +9,8 @@ public class DiceGame {
 
 	static boolean playerOne = true;
 	static boolean playerTwo = false; // these two variables are used to determine which players turn it is
-	static boolean WinOne = false;
-	static boolean WinTwo = false;
+	static boolean chanceToWinOne = false;
+	static boolean chanceToWinTwo = false;
 	static boolean confirmVicOne = false;
 	static boolean confirmVicTwo = false;
 	
@@ -26,7 +26,7 @@ public class DiceGame {
 
 		Die newDice = new Die(); //a new instance of the class Die is initialized
 
-
+		int z = 0;
 		while(Game){
 			System.out.println("Write 'roll' to roll. \nWrite 'end' to end game and view score.");
 			isPlayer(playerOne,playerTwo);
@@ -42,8 +42,12 @@ public class DiceGame {
 				System.out.println("rolling the dice");
 				int DiceOne = newDice.rollDice();
 				int DiceTwo = newDice.rollDice();
-				//int DiceOne = 6;
-				//int DiceTwo = 6;
+				/*
+				int[] array1 = {2,2,6,4,5,5,5,5,5,5,5,5,5};
+				int[] array2 = {3,2,6,6,4,4,4,4,4,4,4,4,4};
+				int DiceOne = array1[z];
+				int DiceTwo = array2[z];
+				*/
 				System.out.println("First Die: "+ DiceOne + " Second Die: " + DiceTwo);
 
 				if(playerOne){
@@ -63,13 +67,14 @@ public class DiceGame {
 					}
 
 					if(DiceOne == DiceTwo && DiceOne == 1){
+						confirmVicOne = false;
 						playerOnePoints = 0;
 					}
 					else{
 						playerOnePoints = playerOnePoints + DiceOne+DiceTwo;
 					}
 					if(DiceOne == DiceTwo && DiceOne == 6){
-						if(WinOne){
+						if(chanceToWinOne){
 							confirmVicOne = true;
 							playerTwo = true;
 							playerOne = false;
@@ -78,7 +83,7 @@ public class DiceGame {
 							}
 						}
 						else{
-							WinOne = true;
+							chanceToWinOne = true;
 							isPair(DiceOne, DiceTwo);
 						}
 					}
@@ -101,12 +106,13 @@ public class DiceGame {
 
 					if(DiceOne == DiceTwo && DiceOne == 1){
 						playerTwoPoints = 0;
+						confirmVicTwo = false;
 					}else{
 						playerTwoPoints = playerTwoPoints + DiceOne+DiceTwo;
 
 					}
 					if(DiceOne == DiceTwo && DiceOne == 6){
-						if(WinTwo){
+						if(chanceToWinTwo){
 							confirmVicTwo = true;
 							if (confirmVicOne == true){
 								Game = false;
@@ -116,7 +122,7 @@ public class DiceGame {
 						}
 						else
 						{
-							WinTwo = true;
+							chanceToWinTwo = true;
 							isPair(DiceOne, DiceTwo);
 						}
 					}
@@ -127,10 +133,12 @@ public class DiceGame {
 			else{
 				System.out.println("Not a valid input! Either roll or end.");
 			}
+		z++;
 		}
 		
 		if (Game != true)
 		{
+			System.out.println("Resolving which player which wins");
 			if( confirmVicOne  && !confirmVicTwo || (playerTwoPoints < playerOnePoints && confirmVicOne))
 			{
 				System.out.println("PlayerOne Won");
