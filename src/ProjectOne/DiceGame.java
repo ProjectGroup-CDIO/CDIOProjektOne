@@ -166,34 +166,13 @@ public class DiceGame {
 				playerOne = true;
 			playerTwo = false;
 		}
-		/*if(a == 1){
-					playerOnePoints = 0;
-				}*/
-		else if(a == 6){
-			if(wasLastRollDoubleSix){
-				//System.out.println("Player One has won!!!!!1111ELEVEN");
-				Game = false;
-
-			}
-			wasLastRollDoubleSix = true;
-		}
+		
 		if(playerTwo){
 			if(a == b){
 				playerTwo = true;
 				playerOne = false;
 			}
-			/*if(a == 1){
-					playerTwoPoints = 0;
-				}*/
-			else if( a == 6){
-				if(wasLastRollDoubleSix){
-					//System.out.println("Player One has won!!!!!1111ELEVEN");
-					Game = false;
-
-				}
-				//fejl ved 66666666 - rettes senere
-				wasLastRollDoubleSix = true;
-			}
+		
 		}
 
 	}
