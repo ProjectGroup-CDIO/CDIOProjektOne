@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class DiceGame {
 
-	static int playerOnePoints = 0;
+	static int playerOnePoints = 36;
 	static int playerTwoPoints = 0; //Here each players points are stored as a variable int
 
 	static boolean playerOne = true;
@@ -13,6 +13,9 @@ public class DiceGame {
 	static boolean chanceToWinTwo = false;
 	static boolean confirmVicOne = false;
 	static boolean confirmVicTwo = false;
+	static boolean firstRollOne = true;
+	static boolean firstRollTwo = true;
+	
 	
 	static boolean wasLastRollDoubleSix = false;
 
@@ -40,18 +43,18 @@ public class DiceGame {
 
 			}else if(i.equals("roll")){
 				System.out.println("rolling the dice");
-				int DiceOne = newDice.rollDice();
-				int DiceTwo = newDice.rollDice();
-				/*
+				//int DiceOne = newDice.rollDice();
+				//int DiceTwo = newDice.rollDice();
+				
 				int[] array1 = {2,2,6,4,5,5,5,5,5,5,5,5,5};
-				int[] array2 = {3,2,6,6,4,4,4,4,4,4,4,4,4};
+				int[] array2 = {2,2,6,6,5,4,4,4,4,4,4,4,4};
 				int DiceOne = array1[z];
 				int DiceTwo = array2[z];
-				*/
+				
 				System.out.println("First Die: "+ DiceOne + " Second Die: " + DiceTwo);
 
 				if(playerOne){
-					if(DiceOne == DiceTwo && playerOnePoints >= 40 && DiceOne!=1){
+					if(DiceOne == DiceTwo && playerOnePoints >= 40 && DiceOne!=1 && firstRollOne){
 						confirmVicOne = true;
 						isPair(DiceOne, DiceTwo);
 					}
@@ -65,7 +68,7 @@ public class DiceGame {
 						playerTwo = true;
 						playerOne = false;
 					}
-
+					firstRollOne = false;
 					if(DiceOne == DiceTwo && DiceOne == 1){
 						confirmVicOne = false;
 						playerOnePoints = 0;
@@ -87,9 +90,10 @@ public class DiceGame {
 							isPair(DiceOne, DiceTwo);
 						}
 					}
+					firstRollTwo = true;
 				}
 				else if(playerTwo){
-					if(DiceOne == DiceTwo && playerTwoPoints >= 40 && DiceOne!=1){
+					if(DiceOne == DiceTwo && playerTwoPoints >= 40 && DiceOne!=1 && firstRollTwo){
 						confirmVicTwo = true;
 						isPair(DiceOne, DiceTwo);
 					}
@@ -111,6 +115,7 @@ public class DiceGame {
 						playerTwoPoints = playerTwoPoints + DiceOne+DiceTwo;
 
 					}
+					firstRollTwo = false;
 					if(DiceOne == DiceTwo && DiceOne == 6){
 						if(chanceToWinTwo){
 							confirmVicTwo = true;
@@ -126,6 +131,7 @@ public class DiceGame {
 							isPair(DiceOne, DiceTwo);
 						}
 					}
+					firstRollOne = true;
 				}
 				System.out.println("playerOnePoints: "+ playerOnePoints);
 				System.out.println("playerTwoPoints: "+ playerTwoPoints);
