@@ -1,6 +1,6 @@
 package ProjectOne;
 
-import java.util.Scanner;
+// import java.util.Scanner;
 
 import boundaryToMatador.GUI;
 
