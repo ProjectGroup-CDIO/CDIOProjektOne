@@ -2,8 +2,9 @@ package ProjectOne;
 
 public class Tests {
 
-	public static void main(String[] args) {
+	public void main(String[] args) {
 		
+		DiceGame game = new DiceGame();
 		
 		Die newDice = new Die();
 		

@@ -4,24 +4,24 @@ import java.util.Scanner;
 
 public class DiceGame {
 
-	static int playerOnePoints = 0;
-	static int playerTwoPoints = 0; //Here each players points are stored as a variable int
+	int playerOnePoints = 0;
+	int playerTwoPoints = 0; //Here each players points are stored as a variable int
 
-	static boolean playerOne = true;
-	static boolean playerTwo = false; // these two variables are used to determine which players turn it is
+	boolean playerOne = true;
+	boolean playerTwo = false; // these two variables are used to determine which players turn it is
 
-	static boolean chanceToWinOne = false;
-	static boolean chanceToWinTwo = false;
+	 boolean chanceToWinOne = false;
+	boolean chanceToWinTwo = false;
 	
-	static boolean confirmVicOne = false;
-	static boolean confirmVicTwo = false;
+	boolean confirmVicOne = false;
+	boolean confirmVicTwo = false;
 	
-	static boolean wasLastRollDoubleSix = false;
-
-	static boolean Game = true; /*This variable is used to determine whether or not the game is 
+	boolean wasLastRollDoubleSix = false;
+	
+	boolean Game = true; /*This variable is used to determine whether or not the game is 
 	still active*/
 
-	public static void main(String[] args) {
+	public void main(String[] args) {
 		System.out.println("This is a game, roll the dice if you are player one");
 
 		Scanner CS = new Scanner(System.in); // the scanner is activated. 
@@ -46,7 +46,7 @@ public class DiceGame {
 
 
 
-	public static void gameEndCheck() {
+	public void gameEndCheck() {
 		if (Game != true)
 		{
 			System.out.println("Resolving which player which wins");
@@ -69,7 +69,7 @@ public class DiceGame {
 
 
 
-	public static void gameLogic(String i, int DiceOne, int DiceTwo) {
+	public void gameLogic(String i, int DiceOne, int DiceTwo) {
 		isPlayer(playerOne,playerTwo);
 		if(i.equals("end")){
 			System.out.println(playerOnePoints);
@@ -179,7 +179,7 @@ public class DiceGame {
 	}
 
 
-	public static void isPair(int a, int b){
+	public void isPair(int a, int b){
 		if(playerOne){
 			if(a == b)
 				playerOne = true;
