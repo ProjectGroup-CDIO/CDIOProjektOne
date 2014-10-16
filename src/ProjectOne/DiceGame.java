@@ -87,7 +87,8 @@ public class DiceGame {
 					if(diceOne == diceTwo && diceOne == 1){
 						confirmVicOne = false;
 						playerOnePoints = 0;
-						isPair(diceOne, diceTwo);
+						playerOne = true;
+						playerTwo = false;
 					}
 					else{
 
@@ -130,7 +131,8 @@ public class DiceGame {
 					if(diceOne == diceTwo && diceOne == 1){
 						playerTwoPoints = 0;
 						confirmVicTwo = false;
-						isPair(diceOne, diceTwo);
+						playerOne = false;
+						playerTwo = true;
 					}
 					else{
 						playerTwoPoints = playerTwoPoints + diceOne+diceTwo;
