@@ -82,6 +82,7 @@ public class DiceGame {
 					}
 					else{
 						playerOnePoints = playerOnePoints + diceOne+diceTwo;
+						GUI.setBalance("Player One", playerOnePoints);
 					}
 					if(diceOne == diceTwo && diceOne == 6){
 						if(chanceToWinOne){
@@ -119,6 +120,7 @@ public class DiceGame {
 						confirmVicTwo = false;
 					}else{
 						playerTwoPoints = playerTwoPoints + diceOne+diceTwo;
+						GUI.setBalance("Player Two", playerTwoPoints);
 
 					}
 					if(diceOne == diceTwo && diceOne == 6){
