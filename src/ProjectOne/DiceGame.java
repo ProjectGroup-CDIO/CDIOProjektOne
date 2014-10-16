@@ -26,7 +26,7 @@ public class DiceGame {
 	public static void main(String[] args) {
 		System.out.println("This is a game, roll the dice if you are player one");
 
-		Scanner CS = new Scanner(System.in); // the scanner is activated. 
+		Scanner CS = new Scanner(System.in); // the scanner is activated for TUI
 
 		Die newDice = new Die(); //a new instance of the class Die is initialized
 		
@@ -39,9 +39,9 @@ public class DiceGame {
 		while(Game){
 			System.out.println("Write 'roll' to roll. \nWrite 'end' to end game and view score.");
 			String i = "";
-			i = GUI.getUserButtonPressed(null, "Roll Dice"); // bruges til GUI
+			i = GUI.getUserButtonPressed(null, "Roll Dice"); // used for GUI. Returns the string "Roll Dice"
 			isPlayer(playerOne,playerTwo);
-			//i = CS.nextLine(); // bruges til TUI
+			//i = CS.nextLine(); // used for TUI
 
 			if(i.equals("end")){
 				System.out.println(playerOnePoints);
@@ -51,7 +51,7 @@ public class DiceGame {
 
 			}else if(i.equals("Roll Dice")){
 				System.out.println("rolling the dice");
-				int diceOne = newDice.rollDice();
+				int diceOne = newDice.rollDice(); //integer is created to represent faceValue of die
 				int diceTwo = newDice.rollDice();
 				GUI.setDice(diceOne, diceTwo);
 				/*
@@ -65,7 +65,7 @@ public class DiceGame {
 				if(playerOne){
 					if(diceOne == diceTwo && playerOnePoints >= 40 && diceOne!=1){
 						confirmVicOne = true;
-						isPair(diceOne, diceTwo); //isPair method is called to determine whether the dice are a pair
+						isPair(diceOne, diceTwo); //isPair is called to give player another turn
 					}
 					else if(diceOne == diceTwo && playerOnePoints < 40){
 						isPair(diceOne, diceTwo);
@@ -81,6 +81,7 @@ public class DiceGame {
 					if(diceOne == diceTwo && diceOne == 1){
 						confirmVicOne = false;
 						playerOnePoints = 0;
+						isPair(diceOne, diceTwo);
 					}
 					else{
 						playerOnePoints = playerOnePoints + diceOne+diceTwo;
@@ -120,7 +121,9 @@ public class DiceGame {
 					if(diceOne == diceTwo && diceOne == 1){
 						playerTwoPoints = 0;
 						confirmVicTwo = false;
-					}else{
+						isPair(diceOne, diceTwo);
+					}
+					else{
 						playerTwoPoints = playerTwoPoints + diceOne+diceTwo;
 						GUI.setBalance("Player Two", playerTwoPoints);
 
