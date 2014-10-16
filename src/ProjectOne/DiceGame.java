@@ -136,7 +136,7 @@ public class DiceGame {
 			else{
 				System.out.println("Not a valid input! Either roll or end.");
 			}
-		z++;
+		//z++;
 		}
 		
 		if (Game != true)
