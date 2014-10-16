@@ -30,6 +30,7 @@ public class DiceGame {
 
 		Die newDice = new Die(); //a new instance of the class Die is initialized
 		
+		
 		GUI.addPlayer("Player Two", playerTwoPoints);
 		GUI.addPlayer("Player One", playerOnePoints);
 
@@ -37,9 +38,10 @@ public class DiceGame {
 		
 		while(Game){
 			System.out.println("Write 'roll' to roll. \nWrite 'end' to end game and view score.");
-			GUI.getUserButtonPressed(null, "roll");
+			String i = "";
+			i = GUI.getUserButtonPressed(null, "Roll Dice"); // bruges til GUI
 			isPlayer(playerOne,playerTwo);
-			String i = CS.nextLine();
+			//i = CS.nextLine(); // bruges til TUI
 
 			if(i.equals("end")){
 				System.out.println(playerOnePoints);
@@ -47,7 +49,7 @@ public class DiceGame {
 				Game = false;
 				//break; 
 
-			}else if(i.equals("roll")){
+			}else if(i.equals("Roll Dice")){
 				System.out.println("rolling the dice");
 				int diceOne = newDice.rollDice();
 				int diceTwo = newDice.rollDice();
@@ -63,7 +65,7 @@ public class DiceGame {
 				if(playerOne){
 					if(diceOne == diceTwo && playerOnePoints >= 40 && diceOne!=1){
 						confirmVicOne = true;
-						isPair(diceOne, diceTwo);
+						isPair(diceOne, diceTwo); //isPair method is called to determine whether the dice are a pair
 					}
 					else if(diceOne == diceTwo && playerOnePoints < 40){
 						isPair(diceOne, diceTwo);
