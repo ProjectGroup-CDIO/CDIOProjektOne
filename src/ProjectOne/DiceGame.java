@@ -40,6 +40,13 @@ public class DiceGame {
 		//z++;
 		}
 		
+		gameEndCheck();
+	}
+
+
+
+
+	public static void gameEndCheck() {
 		if (Game != true)
 		{
 			System.out.println("Resolving which player which wins");
