@@ -15,7 +15,7 @@ public class DiceGame {
 
 	static boolean chanceToWinOne = false;
 	static boolean chanceToWinTwo = false;
-	
+
 	static boolean confirmVicOne = false;
 	static boolean confirmVicTwo = false;
 
@@ -34,14 +34,14 @@ public class DiceGame {
 		GUI.addPlayer("Player Two", playerOnePoints); // Opretter spiller 2 på brættet
 		GUI.addPlayer("Player One", playerOnePoints); // Oprætter spiller 1 på brættet
 
-		
+
 		while(Game){
-			
+
 			System.out.println("Write 'r' to roll. \nWrite 'end' to end game and view score.");
-		//	GUI.getUserButtonPressed(" ", "Throw"); // Opretter kaste-knap
+			//	GUI.getUserButtonPressed(" ", "Throw"); // Opretter kaste-knap
 			isPlayer(playerOne,playerTwo);
 			String i = CS.nextLine();
-		
+
 			if(i.equals("end")){
 				System.out.println(playerOnePoints);
 				System.out.println(playerTwoPoints);
@@ -60,7 +60,7 @@ public class DiceGame {
 				int[] array2 = {3,2,6,6,4,4,4,4,4,4,4,4,4};
 				int DiceOne = array1[z];
 				int DiceTwo = array2[z];
-				*/
+				 */
 
 				System.out.println("First Die: "+ DiceOne + " Second Die: " + DiceTwo);
 
@@ -151,9 +151,9 @@ public class DiceGame {
 			else{
 				System.out.println("Not a valid input! Either r or end.");
 			}
-		//z++;
+			//z++;
 		}
-		
+
 		if (Game != true)
 		{
 			System.out.println("Resolving which player which wins");
@@ -169,7 +169,7 @@ public class DiceGame {
 			{
 				System.out.println("Draw");
 			}
-			
+
 		}
 	}
 
@@ -192,13 +192,13 @@ public class DiceGame {
 				playerOne = true;
 			playerTwo = false;
 		}
-		
+
 		if(playerTwo){
 			if(a == b){
 				playerTwo = true;
 				playerOne = false;
 			}
-		
+
 		}
 
 	}
