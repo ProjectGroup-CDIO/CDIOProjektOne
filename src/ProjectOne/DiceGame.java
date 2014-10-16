@@ -24,6 +24,7 @@ public class DiceGame {
 
 		Scanner CS = new Scanner(System.in); // the scanner is activated. 
 
+
 		Die newDice = new Die(); //a new instance of the class Die is initialized
 	
 		GUI.addPlayer("Player Two", playerTwoPoints);
@@ -34,38 +35,42 @@ public class DiceGame {
 		
 		
 			System.out.println("Write 'roll' to roll. \nWrite 'end' to end game and view score.");
+
 			
-			isPlayer(playerOne,playerTwo);
+			isPlayer(playerOne,playerTwo);//isPlayer method is called which determines whose turn it is
 			String i = GUI.getUserButtonPressed("","Roll Dice");
-			
-			
+
 			if(i.equals("end")){
 				System.out.println(playerOnePoints);
 				System.out.println(playerTwoPoints);
 				Game = false;
-				//break; 
+				//break; //
 
 			}else if(i.equals("Roll Dice")){
 		
 				System.out.println("rolling the dice");
-				int DiceOne = newDice.rollDice();
+
+				int DiceOne = newDice.rollDice();//two integers are created to store faceValue
 				int DiceTwo = newDice.rollDice();
 				GUI.setDice(DiceOne, DiceTwo);
 				System.out.println("First Die: "+ DiceOne + " Second Die: " + DiceTwo);
 
+
 				if(playerOne){
 					if(DiceOne == DiceTwo){
-						isPair(DiceOne, DiceTwo);
+						isPair(DiceOne, DiceTwo); //isPair method is called
 					}else{
 						playerTwo = true;
-						playerOne = false;
+						playerOne = false; //if player one rolls a pair, player will get another turn
 					}
 
 					if(DiceOne == DiceTwo && DiceOne == 1){
-						playerOnePoints = 0;
+						playerOnePoints = 0; //resets score if player rolls a pair of ones
 					}else{
+
 						playerOnePoints = playerOnePoints + DiceOne+DiceTwo;
 						GUI.setBalance("Player One", playerOnePoints);
+
 					}
 				}
 				else if(playerTwo){
@@ -79,10 +84,12 @@ public class DiceGame {
 					if(DiceOne == DiceTwo && DiceOne == 1){
 						playerTwoPoints = 0;
 					}else{
+
 						playerTwoPoints = playerTwoPoints + DiceOne+DiceTwo;
 						GUI.setBalance("Player Two", playerTwoPoints);
-					}
 
+
+			
 
 				}
 				System.out.println("playerOnePoints: "+ playerOnePoints);
@@ -94,10 +101,11 @@ public class DiceGame {
 				System.out.println("Not a valid input! Either roll or end.");
 			}
 
+			}
 		}
 		
 	}
-
+	
 
 
 
