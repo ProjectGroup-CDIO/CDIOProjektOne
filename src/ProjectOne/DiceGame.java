@@ -173,6 +173,7 @@ public class DiceGame {
 			{
 				System.out.println("Draw");
 				GUI.showMessage("Draw!!");
+				GUI.addPlayer("The game was a Draw!!", playerOnePoints);
 			}
 
 		}
