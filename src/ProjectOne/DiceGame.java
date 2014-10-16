@@ -50,42 +50,42 @@ public class DiceGame {
 		
 				System.out.println("rolling the dice");
 
-				int DiceOne = newDice.rollDice();//two integers are created to store faceValue
-				int DiceTwo = newDice.rollDice();
-				GUI.setDice(DiceOne, DiceTwo);
-				System.out.println("First Die: "+ DiceOne + " Second Die: " + DiceTwo);
+				int diceOne = newDice.rollDice();//two integers are created to store faceValue
+				int diceTwo = newDice.rollDice();
+				GUI.setDice(diceOne, diceTwo);
+				System.out.println("First Die: "+ diceOne + " Second Die: " + diceTwo);
 
 
 				if(playerOne){
-					if(DiceOne == DiceTwo){
-						isPair(DiceOne, DiceTwo); //isPair method is called
+					if(diceOne == diceTwo){
+						isPair(diceOne, diceTwo); //isPair method is called
 					}else{
 						playerTwo = true;
 						playerOne = false; //if player one rolls a pair, player will get another turn
 					}
 
-					if(DiceOne == DiceTwo && DiceOne == 1){
+					if(diceOne == diceTwo && diceOne == 1){
 						playerOnePoints = 0; //resets score if player rolls a pair of ones
 					}else{
 
-						playerOnePoints = playerOnePoints + DiceOne+DiceTwo;
+						playerOnePoints = playerOnePoints + diceOne+diceTwo;
 						GUI.setBalance("Player One", playerOnePoints);
 
 					}
 				}
 				else if(playerTwo){
-					if(DiceOne == DiceTwo){
-						isPair(DiceOne, DiceTwo);
+					if(diceOne == diceTwo){
+						isPair(diceOne, diceTwo);
 					}else{
 						playerOne = true;
 						playerTwo = false;
 					}
 
-					if(DiceOne == DiceTwo && DiceOne == 1){
+					if(diceOne == diceTwo && diceOne == 1){
 						playerTwoPoints = 0;
 					}else{
 
-						playerTwoPoints = playerTwoPoints + DiceOne+DiceTwo;
+						playerTwoPoints = playerTwoPoints + diceOne+diceTwo;
 						GUI.setBalance("Player Two", playerTwoPoints);
 
 
