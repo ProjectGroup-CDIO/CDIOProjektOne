@@ -2,6 +2,8 @@ package ProjectOne;
 
 import java.util.Scanner;
 
+import boundaryToMatador.GUI;
+
 public class DiceGame {
 
 	static int playerOnePoints = 0;
@@ -15,7 +17,7 @@ public class DiceGame {
 	static boolean Game = true; /*This variable is used to determine whether or not the game is 
 	still active*/
 
-	
+
 		
 	public static void main(String[] args) {
 		System.out.println("This is a game, roll the dice if you are player one");
@@ -23,23 +25,32 @@ public class DiceGame {
 		Scanner CS = new Scanner(System.in); // the scanner is activated. 
 
 		Die newDice = new Die(); //a new instance of the class Die is initialized
-
+	
+		GUI.addPlayer("Player Two", playerTwoPoints);
+		GUI.addPlayer("Player One", playerOnePoints);
+	
 
 		while(Game){
+		
+		
 			System.out.println("Write 'roll' to roll. \nWrite 'end' to end game and view score.");
+			
 			isPlayer(playerOne,playerTwo);
-			String i = CS.nextLine();
-
+			String i = GUI.getUserButtonPressed("","Roll Dice");
+			
+			
 			if(i.equals("end")){
 				System.out.println(playerOnePoints);
 				System.out.println(playerTwoPoints);
 				Game = false;
 				//break; 
 
-			}else if(i.equals("roll")){
+			}else if(i.equals("Roll Dice")){
+		
 				System.out.println("rolling the dice");
 				int DiceOne = newDice.rollDice();
 				int DiceTwo = newDice.rollDice();
+				GUI.setDice(DiceOne, DiceTwo);
 				System.out.println("First Die: "+ DiceOne + " Second Die: " + DiceTwo);
 
 				if(playerOne){
@@ -54,6 +65,7 @@ public class DiceGame {
 						playerOnePoints = 0;
 					}else{
 						playerOnePoints = playerOnePoints + DiceOne+DiceTwo;
+						GUI.setBalance("Player One", playerOnePoints);
 					}
 				}
 				else if(playerTwo){
@@ -68,18 +80,22 @@ public class DiceGame {
 						playerTwoPoints = 0;
 					}else{
 						playerTwoPoints = playerTwoPoints + DiceOne+DiceTwo;
-
+						GUI.setBalance("Player Two", playerTwoPoints);
 					}
 
 
 				}
 				System.out.println("playerOnePoints: "+ playerOnePoints);
 				System.out.println("playerTwoPoints: "+ playerTwoPoints);
+
+						
 			}
 			else{
 				System.out.println("Not a valid input! Either roll or end.");
 			}
+
 		}
+		
 	}
 
 
