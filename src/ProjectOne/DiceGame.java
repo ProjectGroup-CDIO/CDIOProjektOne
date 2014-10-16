@@ -2,6 +2,8 @@ package ProjectOne;
 
 import java.util.Scanner;
 
+import boundaryToMatador.GUI;
+
 public class DiceGame {
 
 	static int playerOnePoints = 0;
@@ -27,11 +29,15 @@ public class DiceGame {
 		Scanner CS = new Scanner(System.in); // the scanner is activated. 
 
 		Die newDice = new Die(); //a new instance of the class Die is initialized
+		
+		GUI.addPlayer("Player Two", playerTwoPoints);
+		GUI.addPlayer("Player One", playerOnePoints);
 
 		//int z = 0;
 		
 		while(Game){
 			System.out.println("Write 'roll' to roll. \nWrite 'end' to end game and view score.");
+			GUI.getUserButtonPressed(null, "roll");
 			isPlayer(playerOne,playerTwo);
 			String i = CS.nextLine();
 
