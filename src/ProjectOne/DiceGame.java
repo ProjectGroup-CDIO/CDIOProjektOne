@@ -32,7 +32,7 @@ public class DiceGame {
 		
 		while(Game){
 			System.out.println("Write 'roll' to roll. \nWrite 'end' to end game and view score.");
-			isPlayer(playerOne,playerTwo);
+			
 			String i = CS.nextLine();
 			int DiceOne = newDice.rollDice();
 			int DiceTwo = newDice.rollDice();
@@ -63,6 +63,7 @@ public class DiceGame {
 
 
 	public static void gameLogic(String i, int DiceOne, int DiceTwo) {
+		isPlayer(playerOne,playerTwo);
 		if(i.equals("end")){
 			System.out.println(playerOnePoints);
 			System.out.println(playerTwoPoints);

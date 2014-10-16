@@ -10,12 +10,12 @@ public class Tests {
 		
 		int[] array1 = {2,2,6,4,5,5,5,5,5,5,5,5,5};
 		int[] array2 = {3,2,6,6,4,4,4,4,4,4,4,4,4};
-		int DiceOne = array1[z];
-		int DiceTwo = array2[z];
-		
-		newgame.gameLogic("roll", DiceOne, DiceTwo);
 		
 		
+		for(int i = array1.length; i>z;i--){
+		newgame.gameLogic("roll", array1[z], array2[z]);
+		z++;
+		}
 		
 		/*
 		newgame.diceChecks(6, 6);
