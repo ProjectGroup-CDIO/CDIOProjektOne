@@ -34,7 +34,7 @@ public class DiceGame {
 		
 
 		GUI.addPlayer("Player Two", playerTwoPoints); // Opretter spiller 2 på brættet
-		GUI.addPlayer("Player One", playerOnePoints); // Oprætter spiller 1 på brættet
+		GUI.addPlayer("Player One", playerOnePoints); // Opretter spiller 1 på brættet
 		
 
 		while(game){
@@ -178,7 +178,7 @@ public class DiceGame {
 			{
 				System.out.println("PlayerTwo Won");
 				GUI.showMessage("PlayerTwo Won");
-				GUI.addPlayer("Player Two is the Winner!!!!", playerOnePoints);
+				GUI.addPlayer("Player Two is the Winner!!!!", playerTwoPoints);
 			}
 			if(playerOnePoints == playerTwoPoints && confirmVicOne == true && confirmVicTwo == true )
 			{
