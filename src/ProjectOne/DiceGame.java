@@ -3,7 +3,7 @@ package ProjectOne;
 import java.util.Scanner;
 
 public class DiceGame {
-
+//asdbajsgdkhag
 	static int playerOnePoints = 0;
 	static int playerTwoPoints = 0; //Here each players points are stored as a variable int
 
