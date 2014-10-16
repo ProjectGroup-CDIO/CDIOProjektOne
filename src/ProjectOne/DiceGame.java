@@ -21,7 +21,7 @@ public class DiceGame {
 
 	static boolean wasLastRollDoubleSix = false;
 
-	static boolean Game = true; //This variable is used to determine whether or not the game is still active
+	static boolean game = true; //This variable is used to determine whether or not the game is still active
 
 
 	public static void main(String[] args) {
@@ -37,7 +37,7 @@ public class DiceGame {
 		GUI.addPlayer("Player One", playerOnePoints); // Oprætter spiller 1 på brættet
 		
 
-		while(Game){
+		while(game){
 
 			System.out.println("Write 'roll' to roll. \nWrite 'end' to end game and view score.");
 			String i = "";
@@ -49,7 +49,7 @@ public class DiceGame {
 			if(i.equals("end")){
 				System.out.println(playerOnePoints);
 				System.out.println(playerTwoPoints);
-				Game = false;
+				game = false;
 				//break; 
 
 			}else if(i.equals("Roll Dice")){
@@ -78,7 +78,7 @@ public class DiceGame {
 					}
 					else{
 						if (confirmVicTwo){
-							Game = false;
+							game = false;
 						}
 						playerTwo = true;
 						playerOne = false;
@@ -101,7 +101,7 @@ public class DiceGame {
 							playerTwo = true;
 							playerOne = false;
 							if (confirmVicTwo == true){
-								Game = false;
+								game = false;
 							}
 						}
 						else{
@@ -121,7 +121,7 @@ public class DiceGame {
 					}
 					else{
 						if (confirmVicOne){
-							Game = false;
+							game = false;
 						}
 						playerOne = true;
 						playerTwo = false;
@@ -141,7 +141,7 @@ public class DiceGame {
 						if(chanceToWinTwo){
 							confirmVicTwo = true;
 							if (confirmVicOne == true){
-								Game = false;
+								game = false;
 							}
 							playerTwo = false;
 							playerOne = true;
@@ -162,7 +162,7 @@ public class DiceGame {
 			//z++;
 		}
 
-		if (Game != true)
+		if (game != true)
 		{
 			System.out.println("Resolving which player which wins");
 			if( confirmVicOne  && !confirmVicTwo || (playerTwoPoints < playerOnePoints && confirmVicOne))
