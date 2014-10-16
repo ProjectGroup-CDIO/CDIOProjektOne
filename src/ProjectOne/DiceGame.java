@@ -1,6 +1,7 @@
 package ProjectOne;
 
 import java.util.Scanner;
+
 import boundaryToMatador.GUI;
 
 public class DiceGame {
@@ -10,27 +11,29 @@ public class DiceGame {
 
 	static boolean playerOne = true;
 	static boolean playerTwo = false; // these two variables are used to determine which players turn it is
-
 	static boolean wasLastRollDoubleSix = false;
 
 	static boolean Game = true; /*This variable is used to determine whether or not the game is 
 	                              still active*/
-
 	
 		
 	public static void main(String[] args) {
-		System.out.println("This is a game, roll the dice if you are player one");
+		System.out.println("This is a game, roll the dice if you are Player One");
 
 		Scanner CS = new Scanner(System.in); // the scanner is activated. 
 
 		Die newDice = new Die(); //a new instance of the class Die is initialized
 
-
+		GUI.addPlayer("Player Two", playerOnePoints); // Opretter spiller 2 på brættet
+		GUI.addPlayer("Player One", playerOnePoints); // Oprætter spiller 1 på brættet
+		
 		while(Game){
+			
 			System.out.println("Write 'r' to roll. \nWrite 'end' to end game and view score.");
+			GUI.getUserButtonPressed(" ", "Throw"); // Opretter kaste-knap
 			isPlayer(playerOne,playerTwo);
 			String i = CS.nextLine();
-
+		
 			if(i.equals("end")){
 				System.out.println(playerOnePoints);
 				System.out.println(playerTwoPoints);
@@ -41,7 +44,7 @@ public class DiceGame {
 				System.out.println("Rolling the dices");
 				int DiceOne = newDice.rollDice();
 				int DiceTwo = newDice.rollDice();
-			//	GUI.setDice(DiceOne, DiceTwo);
+				GUI.setDice(DiceOne, DiceTwo);
 				System.out.println("First Die: "+ DiceOne + " Second Die: " + DiceTwo);
 
 				if(playerOne){
@@ -56,6 +59,7 @@ public class DiceGame {
 						playerOnePoints = 0;
 					}else{
 						playerOnePoints = playerOnePoints + DiceOne+DiceTwo;
+						GUI.setBalance("Player One", playerOnePoints);
 					}
 				}
 				else if(playerTwo){
@@ -70,7 +74,7 @@ public class DiceGame {
 						playerTwoPoints = 0;
 					}else{
 						playerTwoPoints = playerTwoPoints + DiceOne+DiceTwo;
-
+						GUI.setBalance("Player Two", playerTwoPoints);
 					}
 
 
