@@ -34,108 +34,9 @@ public class DiceGame {
 			System.out.println("Write 'roll' to roll. \nWrite 'end' to end game and view score.");
 			isPlayer(playerOne,playerTwo);
 			String i = CS.nextLine();
-
-			if(i.equals("end")){
-				System.out.println(playerOnePoints);
-				System.out.println(playerTwoPoints);
-				Game = false;
-				//break; 
-
-			}else if(i.equals("roll")){
-				System.out.println("rolling the dice");
-				int DiceOne = newDice.rollDice();
-				int DiceTwo = newDice.rollDice();
-				/*
-				int[] array1 = {2,2,6,4,5,5,5,5,5,5,5,5,5};
-				int[] array2 = {3,2,6,6,4,4,4,4,4,4,4,4,4};
-				int DiceOne = array1[z];
-				int DiceTwo = array2[z];
-				*/
-				System.out.println("First Die: "+ DiceOne + " Second Die: " + DiceTwo);
-
-				if(playerOne){
-					if(DiceOne == DiceTwo && playerOnePoints >= 40 && DiceOne!=1){
-						confirmVicOne = true;
-						isPair(DiceOne, DiceTwo);
-					}
-					else if(DiceOne == DiceTwo && playerOnePoints < 40){
-						isPair(DiceOne, DiceTwo);
-					}
-					else{
-						if (confirmVicTwo){
-							Game = false;
-						}
-						playerTwo = true;
-						playerOne = false;
-					}
-
-					if(DiceOne == DiceTwo && DiceOne == 1){
-						confirmVicOne = false;
-						playerOnePoints = 0;
-					}
-					else{
-						playerOnePoints = playerOnePoints + DiceOne+DiceTwo;
-					}
-					if(DiceOne == DiceTwo && DiceOne == 6){
-						if(chanceToWinOne){
-							confirmVicOne = true;
-							playerTwo = true;
-							playerOne = false;
-							if (confirmVicTwo == true){
-								Game = false;
-							}
-						}
-						else{
-							chanceToWinOne = true;
-							isPair(DiceOne, DiceTwo);
-						}
-					}
-				}
-				else if(playerTwo){
-					if(DiceOne == DiceTwo && playerTwoPoints >= 40 && DiceOne!=1){
-						confirmVicTwo = true;
-						isPair(DiceOne, DiceTwo);
-					}
-					else if(DiceOne == DiceTwo && playerTwoPoints < 40){
-						isPair(DiceOne, DiceTwo);
-					}
-					else{
-						if (confirmVicOne){
-							Game = false;
-						}
-						playerOne = true;
-						playerTwo = false;
-					}
-
-					if(DiceOne == DiceTwo && DiceOne == 1){
-						playerTwoPoints = 0;
-						confirmVicTwo = false;
-					}else{
-						playerTwoPoints = playerTwoPoints + DiceOne+DiceTwo;
-
-					}
-					if(DiceOne == DiceTwo && DiceOne == 6){
-						if(chanceToWinTwo){
-							confirmVicTwo = true;
-							if (confirmVicOne == true){
-								Game = false;
-							}
-							playerTwo = false;
-							playerOne = true;
-						}
-						else
-						{
-							chanceToWinTwo = true;
-							isPair(DiceOne, DiceTwo);
-						}
-					}
-				}
-				System.out.println("playerOnePoints: "+ playerOnePoints);
-				System.out.println("playerTwoPoints: "+ playerTwoPoints);
-			}
-			else{
-				System.out.println("Not a valid input! Either roll or end.");
-			}
+			int DiceOne = newDice.rollDice();
+			int DiceTwo = newDice.rollDice();
+			gameLogic(i, DiceOne, DiceTwo);
 		//z++;
 		}
 		
@@ -155,6 +56,105 @@ public class DiceGame {
 				System.out.println("Draw");
 			}
 			
+		}
+	}
+
+
+
+
+	public static void gameLogic(String i, int DiceOne, int DiceTwo) {
+		if(i.equals("end")){
+			System.out.println(playerOnePoints);
+			System.out.println(playerTwoPoints);
+			Game = false;
+			//break; 
+
+		}else if(i.equals("roll")){
+			System.out.println("rolling the dice");
+			System.out.println("First Die: "+ DiceOne + " Second Die: " + DiceTwo);
+
+			if(playerOne){
+				if(DiceOne == DiceTwo && playerOnePoints >= 40 && DiceOne!=1){
+					confirmVicOne = true;
+					isPair(DiceOne, DiceTwo);
+				}
+				else if(DiceOne == DiceTwo && playerOnePoints < 40){
+					isPair(DiceOne, DiceTwo);
+				}
+				else{
+					if (confirmVicTwo){
+						Game = false;
+					}
+					playerTwo = true;
+					playerOne = false;
+				}
+
+				if(DiceOne == DiceTwo && DiceOne == 1){
+					confirmVicOne = false;
+					playerOnePoints = 0;
+				}
+				else{
+					playerOnePoints = playerOnePoints + DiceOne+DiceTwo;
+				}
+				if(DiceOne == DiceTwo && DiceOne == 6){
+					if(chanceToWinOne){
+						confirmVicOne = true;
+						playerTwo = true;
+						playerOne = false;
+						if (confirmVicTwo == true){
+							Game = false;
+						}
+					}
+					else{
+						chanceToWinOne = true;
+						isPair(DiceOne, DiceTwo);
+					}
+				}
+			}
+			else if(playerTwo){
+				if(DiceOne == DiceTwo && playerTwoPoints >= 40 && DiceOne!=1){
+					confirmVicTwo = true;
+					isPair(DiceOne, DiceTwo);
+				}
+				else if(DiceOne == DiceTwo && playerTwoPoints < 40){
+					isPair(DiceOne, DiceTwo);
+				}
+				else{
+					if (confirmVicOne){
+						Game = false;
+					}
+					playerOne = true;
+					playerTwo = false;
+				}
+
+				if(DiceOne == DiceTwo && DiceOne == 1){
+					playerTwoPoints = 0;
+					confirmVicTwo = false;
+				}else{
+					playerTwoPoints = playerTwoPoints + DiceOne+DiceTwo;
+
+				}
+				if(DiceOne == DiceTwo && DiceOne == 6){
+					if(chanceToWinTwo){
+						confirmVicTwo = true;
+						if (confirmVicOne == true){
+							Game = false;
+						}
+						playerTwo = false;
+						playerOne = true;
+					}
+					else
+					{
+						chanceToWinTwo = true;
+						isPair(DiceOne, DiceTwo);
+					}
+				}
+			}
+			System.out.println("playerOnePoints: "+ playerOnePoints);
+			System.out.println("playerTwoPoints: "+ playerTwoPoints);
+		}
+		else{
+			System.out.println("Not a valid input! Either roll or end.");
 		}
 	}
 
