@@ -27,20 +27,19 @@ public class DiceGame {
 	public static void main(String[] args) {
 		System.out.println("This is a game, roll the dice if you are Player One");
 
-		Scanner CS = new Scanner(System.in); // the scanner is activated. 
+		// Scanner CS = new Scanner(System.in); // the scanner is activated. 
 
 		Die newDice = new Die(); //a new instance of the class Die is initialized
 
 		GUI.addPlayer("Player Two", playerOnePoints); // Opretter spiller 2 på brættet
 		GUI.addPlayer("Player One", playerOnePoints); // Oprætter spiller 1 på brættet
-
+		
 
 		while(Game){
 
 			System.out.println("Write 'r' to roll. \nWrite 'end' to end game and view score.");
-			//	GUI.getUserButtonPressed(" ", "Throw"); // Opretter kaste-knap
 			isPlayer(playerOne,playerTwo);
-			String i = CS.nextLine();
+			String i = GUI.getUserButtonPressed("Roll The Dices ", "Roll"); // Opretter kaste-knap
 
 			if(i.equals("end")){
 				System.out.println(playerOnePoints);
@@ -48,7 +47,7 @@ public class DiceGame {
 				Game = false;
 				//break; 
 
-			}else if(i.equals("r")){
+			}else if(i.equals("Roll")){
 				System.out.println("Rolling the dices");
 				int DiceOne = newDice.rollDice();
 				int DiceTwo = newDice.rollDice();
@@ -160,28 +159,38 @@ public class DiceGame {
 			if( confirmVicOne  && !confirmVicTwo || (playerTwoPoints < playerOnePoints && confirmVicOne))
 			{
 				System.out.println("PlayerOne Won");
+				GUI.showMessage("PlayerOne Won");
+				GUI.addPlayer("Player One is the Winner!!!!", playerOnePoints);
+				
 			}
 			if((confirmVicTwo && !confirmVicOne ) || (playerOnePoints < playerTwoPoints && confirmVicTwo))
 			{
 				System.out.println("PlayerTwo Won");
+				GUI.showMessage("PlayerTwo Won");
+				GUI.addPlayer("Player Two is the Winner!!!!", playerOnePoints);
 			}
 			if(playerOnePoints == playerTwoPoints && confirmVicOne == true && confirmVicTwo == true )
 			{
 				System.out.println("Draw");
+				GUI.showMessage("Draw!!");
 			}
 
 		}
 	}
-
+		
 
 
 
 	public static void isPlayer(boolean a, boolean b){
 		if(a){
 			System.out.println("Player ones turn.");
+			GUI.showMessage("Player ones turn");
+			
 		}
 		if(b){
 			System.out.println("Player twos turn.");
+			GUI.showMessage("Player twos turn");
+			
 		}
 	}
 
