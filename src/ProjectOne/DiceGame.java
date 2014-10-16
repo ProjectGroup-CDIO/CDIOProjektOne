@@ -33,7 +33,7 @@ public class DiceGame {
 		Die newDice = new Die(); //a new instance of the class Die is initialized
 		
 
-		GUI.addPlayer("Player Two", playerOnePoints); // Opretter spiller 2 på brættet
+		GUI.addPlayer("Player Two", playerTwoPoints); // Opretter spiller 2 på brættet
 		GUI.addPlayer("Player One", playerOnePoints); // Oprætter spiller 1 på brættet
 		
 
