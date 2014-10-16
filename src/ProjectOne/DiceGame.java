@@ -49,23 +49,24 @@ public class DiceGame {
 
 			}else if(i.equals("roll")){
 				System.out.println("rolling the dice");
-				int DiceOne = newDice.rollDice();
-				int DiceTwo = newDice.rollDice();
+				int diceOne = newDice.rollDice();
+				int diceTwo = newDice.rollDice();
+				GUI.setDice(diceOne, diceTwo);
 				/*
 				int[] array1 = {2,2,6,4,5,5,5,5,5,5,5,5,5};
 				int[] array2 = {3,2,6,6,4,4,4,4,4,4,4,4,4};
 				int DiceOne = array1[z];
 				int DiceTwo = array2[z];
 				*/
-				System.out.println("First Die: "+ DiceOne + " Second Die: " + DiceTwo);
+				System.out.println("First Die: "+ diceOne + " Second Die: " + diceTwo);
 
 				if(playerOne){
-					if(DiceOne == DiceTwo && playerOnePoints >= 40 && DiceOne!=1){
+					if(diceOne == diceTwo && playerOnePoints >= 40 && diceOne!=1){
 						confirmVicOne = true;
-						isPair(DiceOne, DiceTwo);
+						isPair(diceOne, diceTwo);
 					}
-					else if(DiceOne == DiceTwo && playerOnePoints < 40){
-						isPair(DiceOne, DiceTwo);
+					else if(diceOne == diceTwo && playerOnePoints < 40){
+						isPair(diceOne, diceTwo);
 					}
 					else{
 						if (confirmVicTwo){
@@ -75,14 +76,14 @@ public class DiceGame {
 						playerOne = false;
 					}
 
-					if(DiceOne == DiceTwo && DiceOne == 1){
+					if(diceOne == diceTwo && diceOne == 1){
 						confirmVicOne = false;
 						playerOnePoints = 0;
 					}
 					else{
-						playerOnePoints = playerOnePoints + DiceOne+DiceTwo;
+						playerOnePoints = playerOnePoints + diceOne+diceTwo;
 					}
-					if(DiceOne == DiceTwo && DiceOne == 6){
+					if(diceOne == diceTwo && diceOne == 6){
 						if(chanceToWinOne){
 							confirmVicOne = true;
 							playerTwo = true;
@@ -93,17 +94,17 @@ public class DiceGame {
 						}
 						else{
 							chanceToWinOne = true;
-							isPair(DiceOne, DiceTwo);
+							isPair(diceOne, diceTwo);
 						}
 					}
 				}
 				else if(playerTwo){
-					if(DiceOne == DiceTwo && playerTwoPoints >= 40 && DiceOne!=1){
+					if(diceOne == diceTwo && playerTwoPoints >= 40 && diceOne!=1){
 						confirmVicTwo = true;
-						isPair(DiceOne, DiceTwo);
+						isPair(diceOne, diceTwo);
 					}
-					else if(DiceOne == DiceTwo && playerTwoPoints < 40){
-						isPair(DiceOne, DiceTwo);
+					else if(diceOne == diceTwo && playerTwoPoints < 40){
+						isPair(diceOne, diceTwo);
 					}
 					else{
 						if (confirmVicOne){
@@ -113,14 +114,14 @@ public class DiceGame {
 						playerTwo = false;
 					}
 
-					if(DiceOne == DiceTwo && DiceOne == 1){
+					if(diceOne == diceTwo && diceOne == 1){
 						playerTwoPoints = 0;
 						confirmVicTwo = false;
 					}else{
-						playerTwoPoints = playerTwoPoints + DiceOne+DiceTwo;
+						playerTwoPoints = playerTwoPoints + diceOne+diceTwo;
 
 					}
-					if(DiceOne == DiceTwo && DiceOne == 6){
+					if(diceOne == diceTwo && diceOne == 6){
 						if(chanceToWinTwo){
 							confirmVicTwo = true;
 							if (confirmVicOne == true){
@@ -132,7 +133,7 @@ public class DiceGame {
 						else
 						{
 							chanceToWinTwo = true;
-							isPair(DiceOne, DiceTwo);
+							isPair(diceOne, diceTwo);
 						}
 					}
 				}
