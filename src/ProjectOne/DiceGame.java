@@ -1,6 +1,5 @@
 package ProjectOne;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class DiceGame {
@@ -26,7 +25,7 @@ public class DiceGame {
 
 		while(Game){
 			System.out.println("Write 'roll' to roll. \nWrite 'end' to end game and view score.");
-			isPlayer(playerOne,playerTwo); //isPlayer method is called
+			isPlayer(playerOne,playerTwo); //isPlayer method is called which determines whose turn it is
 			String i = CS.nextLine();
 
 			if(i.equals("end")){
@@ -43,10 +42,10 @@ public class DiceGame {
 
 				if(playerOne){
 					if(dieOne == dieTwo){
-						isPair(dieOne, dieTwo); //isPair method i called
+						isPair(dieOne, dieTwo); //isPair method is called
 					}else{
 						playerTwo = true;
-						playerOne = false; //if player one rolls a pair, player will get another etorn
+						playerOne = false; //if player one rolls a pair, player will get another turn
 					}
 
 					if(dieOne == dieTwo && dieOne == 1){
@@ -68,8 +67,7 @@ public class DiceGame {
 					}else{
 						playerTwoPoints = playerTwoPoints + dieOne+dieTwo;
 
-					}
-					//newDie.rollDice();
+			
 
 				}
 				System.out.println("playerOnePoints: "+ playerOnePoints);
@@ -80,7 +78,7 @@ public class DiceGame {
 			}
 		}
 	}
-
+	}
 
 
 
