@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class DiceGame {
 
-	static int playerOnePoints = 36;
+	static int playerOnePoints = 0;
 	static int playerTwoPoints = 0; //Here each players points are stored as a variable int
 
 	static boolean playerOne = true;
@@ -43,19 +43,21 @@ public class DiceGame {
 
 			}else if(i.equals("roll")){
 				System.out.println("rolling the dice");
-				//int DiceOne = newDice.rollDice();
-				//int DiceTwo = newDice.rollDice();
-				
-				int[] array1 = {2,2,6,4,5,5,5,5,5,5,5,5,5};
-				int[] array2 = {2,2,6,6,5,4,4,4,4,4,4,4,4};
+				int DiceOne = newDice.rollDice();
+				int DiceTwo = newDice.rollDice();
+				/*
+				int[] array1 = {2,2,6,5,5,5,5,5,5,5,5,5,5};
+				int[] array2 = {2,2,5,4,5,4,4,4,4,4,4,4,2};
 				int DiceOne = array1[z];
 				int DiceTwo = array2[z];
-				
+				*/
 				System.out.println("First Die: "+ DiceOne + " Second Die: " + DiceTwo);
 
 				if(playerOne){
-					if(DiceOne == DiceTwo && playerOnePoints >= 40 && DiceOne!=1 && firstRollOne){
-						confirmVicOne = true;
+					if(DiceOne == DiceTwo && playerOnePoints >= 40 && DiceOne!=1){
+						if (firstRollOne){
+							confirmVicOne = true;
+						}
 						isPair(DiceOne, DiceTwo);
 					}
 					else if(DiceOne == DiceTwo && playerOnePoints < 40){
@@ -93,8 +95,10 @@ public class DiceGame {
 					firstRollTwo = true;
 				}
 				else if(playerTwo){
-					if(DiceOne == DiceTwo && playerTwoPoints >= 40 && DiceOne!=1 && firstRollTwo){
-						confirmVicTwo = true;
+					if(DiceOne == DiceTwo && playerTwoPoints >= 40 && DiceOne!=1){
+						if (firstRollTwo){
+							confirmVicTwo = true;
+						}
 						isPair(DiceOne, DiceTwo);
 					}
 					else if(DiceOne == DiceTwo && playerTwoPoints < 40){
@@ -107,7 +111,7 @@ public class DiceGame {
 						playerOne = true;
 						playerTwo = false;
 					}
-
+					firstRollTwo = false;
 					if(DiceOne == DiceTwo && DiceOne == 1){
 						playerTwoPoints = 0;
 						confirmVicTwo = false;
@@ -115,7 +119,6 @@ public class DiceGame {
 						playerTwoPoints = playerTwoPoints + DiceOne+DiceTwo;
 
 					}
-					firstRollTwo = false;
 					if(DiceOne == DiceTwo && DiceOne == 6){
 						if(chanceToWinTwo){
 							confirmVicTwo = true;
