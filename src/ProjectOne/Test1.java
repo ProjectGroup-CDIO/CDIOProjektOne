@@ -12,26 +12,26 @@ public class Test1 {
 		int fours = 0;
 		int fivers = 0;
 		int sixers = 0;
-		int a;
+		int faceValue;
 		for(int i = 0; i < 10000000; i++){
-			a = newDice.rollDice();
+			faceValue = newDice.rollDice();
 			
-			if(a == 1){
+			if(faceValue == 1){
 				ones = ones + 1;
 			}
-			if(a == 2){
+			if(faceValue == 2){
 				twoes= twoes + 1;
 			}
-			if(a == 3){
+			if(faceValue == 3){
 				threes = threes + 1;
 			}
-			if(a == 4){
+			if(faceValue == 4){
 				fours = fours + 1;
 			}
-			if(a == 5){
+			if(faceValue == 5){
 				fivers = fivers + 1;
 			}
-			if(a == 6){
+			if(faceValue == 6){
 				sixers = sixers + 1;
 			}
 		}
