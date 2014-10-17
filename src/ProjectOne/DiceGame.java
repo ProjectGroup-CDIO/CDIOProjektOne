@@ -35,20 +35,20 @@ public class DiceGame {
 
 		Die newDice = new Die(); //a new instance of the class Die is initialized
 	
-		GUI.addPlayer("Player Two", playerTwoPoints); // Opretter spiller 2 på brættet
-		GUI.addPlayer("Player One", playerOnePoints); // Opretter spiller 1 på brættet
+		GUI.addPlayer("Player Two", playerTwoPoints); // Creates player 2 on the board
+		GUI.addPlayer("Player One", playerOnePoints); // Creates player 1 on the board
 		
 
 		while(game){
 
-			System.out.println("Write 'roll' to roll. \nWrite 'end' to end game and view score.");
+			System.out.println("Write 'Roll Dice' to roll. \nWrite 'end' to end game and view score.");
 			String i = "";
 		
 			i = GUI.getUserButtonPressed(null, "Roll Dice"); // used for GUI. Returns the string "Roll Dice"
 			//i = CS.nextLine(); // used when only using TUI
-			int diceOne = newDice.rollDice(); //integer is created to represent faceValue of die
-			int diceTwo = newDice.rollDice();
-			gameLogic(i, diceOne, diceTwo);
+			int dieOne = newDice.rollDice(); //integer is created to represent faceValue of die
+			int dieTwo = newDice.rollDice();
+			gameLogic(i, dieOne, dieTwo);
 			isPlayer(playerOne,playerTwo);
 			//z++;
 		}
@@ -208,7 +208,7 @@ public class DiceGame {
 			System.out.println("Player Two Points: "+ playerTwoPoints);
 		}
 		else{
-			System.out.println("Not a valid input! Either r or end.");
+			System.out.println("Not a valid input! Either Roll Dice or end.");
 		}
 		long endTime = System.currentTimeMillis();
 		duration = endTime - startTime;
