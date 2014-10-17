@@ -12,21 +12,23 @@ public class DiceGame {
 	boolean playerOne = true;
 	boolean playerTwo = false; // these two variables are used to determine which players turn it is
 
-
+	//Variables which are meant to set a player in winning-condition.
 	boolean chanceToWinOne = false;
 	boolean chanceToWinTwo = false;
 
+	//Variables which are meant to set a player to win, if chanceToWin == true
 	boolean confirmVicOne = false;
 	boolean confirmVicTwo = false;
 
+	//Check if its the first roll in the turn
 	boolean firstRollOne = true;
 	boolean firstRollTwo = true;
 	
-
+	//Chech if the game is still running
 	boolean game = true; //This variable is used to determine whether or not the game is still active
 
 	
-	
+	//This is the game
 	public void game() {
 		System.out.println("This is a game, roll the dice if you are Player One");
 		//Scanner CS = new Scanner(System.in); // the scanner is activated for TUI
@@ -36,7 +38,6 @@ public class DiceGame {
 		GUI.addPlayer("Player Two", playerTwoPoints); // Creates player 2 on the board
 		GUI.addPlayer("Player One", playerOnePoints); // Creates player 1 on the board
 		
-
 		while(game){
 
 			System.out.println("Write 'Roll Dice' to roll. \nWrite 'end' to end game and view score.");
@@ -46,10 +47,10 @@ public class DiceGame {
 			//i = CS.nextLine(); // used when only using TUI
 			int dieOne = newDice.rollDice(); //integer is created to represent faceValue of die
 			int dieTwo = newDice.rollDice();
-			gameLogic(i, dieOne, dieTwo);
+			gameLogic(i, dieOne, dieTwo); //Runs the game
 			isPlayer(playerOne,playerTwo);
 		}
-		checkForWinner();
+		checkForWinner();//When the game ends. It checks which player have won
 	}
 
 
@@ -59,7 +60,7 @@ public class DiceGame {
 		long startTime2 = System.currentTimeMillis();
 		if (game != true)
 		{
-			
+			//PlayerOne won
 			System.out.println("Resolving which player which wins");
 			if( confirmVicOne  && !confirmVicTwo || (playerTwoPoints < playerOnePoints && confirmVicOne))
 			{
@@ -68,12 +69,14 @@ public class DiceGame {
 			GUI.addPlayer("Player One is the Winner!!!!", playerOnePoints);
 				
 			}
+			//PlayerTwo won
 			if((confirmVicTwo && !confirmVicOne ) || (playerOnePoints < playerTwoPoints && confirmVicTwo))
 			{
 				System.out.println("PlayerTwo Won");
 			GUI.showMessage("PlayerTwo Won");
 			GUI.addPlayer("Player Two is the Winner!!!!", playerTwoPoints);
 			}
+			//PlayerOne and PlayerTwo both won and have equal points
 			if(playerOnePoints == playerTwoPoints && confirmVicOne == true && confirmVicTwo == true )
 			{
 				System.out.println("Draw");
@@ -82,7 +85,7 @@ public class DiceGame {
 			}
 			
 		}
-		long endTime2 = System.currentTimeMillis(); 
+		long endTime2 = System.currentTimeMillis(); //Endtime
 		System.out.println("End game Check took " + (endTime2 - startTime2)  + " milliseconds");
 	}
 
@@ -90,7 +93,7 @@ public class DiceGame {
 
 
 	public void gameLogic(String i, int dieOne, int dieTwo) {
-		long startTime = System.currentTimeMillis();
+		long startTime = System.currentTimeMillis();//Starttime
 		if(i.equals("end")){
 			System.out.println(playerOnePoints);
 			System.out.println(playerTwoPoints);
@@ -108,7 +111,7 @@ public class DiceGame {
 			if(playerOne){
 				if(dieOne == dieTwo && playerOnePoints >= 40 && dieOne!=1){
 					if (firstRollOne){
-					confirmVicOne = true;
+					confirmVicOne = true;//Player is set to win
 					}
 					
 					isPair(dieOne, dieTwo); //isPair is called to give player another turn
@@ -118,29 +121,30 @@ public class DiceGame {
 				}
 				else{
 					if (confirmVicTwo){
-						game = false;
+						game = false;//If the playerTwo have won, the game ends
 					}
-					playerTwo = true;
+					playerTwo = true;//Player turn switches
 					playerOne = false;
 				}
 
 				if(dieOne == dieTwo && dieOne == 1){
-					confirmVicOne = false;
-					playerOnePoints = 0;
+					confirmVicOne = false;//If the player was about to win. Then it is no longer the case
+					playerOnePoints = 0;//Reset points
 					playerOne = true;
 					playerTwo = false;
 				}
 				else{
 
-					playerOnePoints = playerOnePoints + dieOne+dieTwo;
+					playerOnePoints = playerOnePoints + dieOne+dieTwo;//Summation of points
 					GUI.setBalance("Player One", playerOnePoints);
 
 				}
 				if(dieOne == dieTwo && dieOne == 6){
 					if(chanceToWinOne){
-						confirmVicOne = true;
+						confirmVicOne = true;//If previously in winning conditions. The player have won
 						playerTwo = true;
 						playerOne = false;
+						//first pair of 6s sets the player in winning condition
 						if (confirmVicTwo == true){
 							game = false;
 						}
@@ -151,7 +155,7 @@ public class DiceGame {
 					}
 
 				}
-				firstRollTwo = true;
+				firstRollTwo = true;//PlayerTwo gets firtroll
 			}
 			else if(playerTwo){
 				if(dieOne == dieTwo && playerTwoPoints >= 40 && dieOne!=1){
@@ -205,7 +209,7 @@ public class DiceGame {
 		else{
 			System.out.println("Not a valid input! Either Roll Dice or end.");
 		}
-		long endTime = System.currentTimeMillis();
+		long endTime = System.currentTimeMillis();//Endtime
 		System.out.println("Game logic took " +(endTime - startTime)  + " milliseconds");
 	}
 		
@@ -214,6 +218,7 @@ public class DiceGame {
 
 	public static void isPlayer(boolean a, boolean b){
 		long startTime = System.currentTimeMillis();
+		//Shows turn in GUI
 		if(a){
 			System.out.println("Player ones turn.");
 			GUI.showMessage("Player ones turn");
