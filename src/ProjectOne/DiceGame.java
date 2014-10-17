@@ -27,7 +27,8 @@ public class DiceGame {
 	static boolean game = true; //This variable is used to determine whether or not the game is still active
 
 	static long duration = 0;
-
+	static long duration2 = 0;
+	
 	public static void main(String[] args) {
 		System.out.println("This is a game, roll the dice if you are Player One");
 		//Scanner CS = new Scanner(System.in); // the scanner is activated for TUI
@@ -59,9 +60,9 @@ public class DiceGame {
 
 
 	private static void checkForWinner() {
-		long startTime = System.currentTimeMillis();
 		if (game != true)
 		{
+			long startTime2 = System.currentTimeMillis();
 			System.out.println("Resolving which player which wins");
 			if( confirmVicOne  && !confirmVicTwo || (playerTwoPoints < playerOnePoints && confirmVicOne))
 			{
@@ -82,11 +83,10 @@ public class DiceGame {
 				GUI.showMessage("Draw!!");
 				GUI.addPlayer("The game was a Draw!!", playerOnePoints);
 			}
-
+			long endTime2 = System.currentTimeMillis();
+			duration2 = (endTime2 - startTime2);
+			System.out.println("That took " + duration2 + " milliseconds");
 		}
-		long endTime = System.currentTimeMillis();
-		duration = duration + (endTime - startTime);
-		System.out.println("That took " + duration + " milliseconds");
 	}
 
 
