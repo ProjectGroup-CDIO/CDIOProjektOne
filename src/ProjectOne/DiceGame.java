@@ -50,9 +50,7 @@ public class DiceGame {
 			int dieTwo = newDice.rollDice();
 			gameLogic(i, dieOne, dieTwo);
 			isPlayer(playerOne,playerTwo);
-			//z++;
 		}
-
 		checkForWinner();
 	}
 
