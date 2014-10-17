@@ -22,12 +22,10 @@ public class DiceGame {
 	boolean firstRollOne = true;
 	boolean firstRollTwo = true;
 	
-	boolean wasLastRollDoubleSix = false;
 
 	boolean game = true; //This variable is used to determine whether or not the game is still active
 
-	long duration = 0;
-	long duration2 = 0;
+	
 	
 	public void game() {
 		System.out.println("This is a game, roll the dice if you are Player One");
@@ -66,27 +64,26 @@ public class DiceGame {
 			if( confirmVicOne  && !confirmVicTwo || (playerTwoPoints < playerOnePoints && confirmVicOne))
 			{
 				System.out.println("PlayerOne Won");
-				GUI.showMessage("PlayerOne Won");
-				GUI.addPlayer("Player One is the Winner!!!!", playerOnePoints);
+			GUI.showMessage("PlayerOne Won");
+			GUI.addPlayer("Player One is the Winner!!!!", playerOnePoints);
 				
 			}
 			if((confirmVicTwo && !confirmVicOne ) || (playerOnePoints < playerTwoPoints && confirmVicTwo))
 			{
 				System.out.println("PlayerTwo Won");
-				GUI.showMessage("PlayerTwo Won");
-				GUI.addPlayer("Player Two is the Winner!!!!", playerTwoPoints);
+			GUI.showMessage("PlayerTwo Won");
+			GUI.addPlayer("Player Two is the Winner!!!!", playerTwoPoints);
 			}
 			if(playerOnePoints == playerTwoPoints && confirmVicOne == true && confirmVicTwo == true )
 			{
 				System.out.println("Draw");
-				GUI.showMessage("Draw!!");
-				GUI.addPlayer("The game was a Draw!!", playerOnePoints);
+			GUI.showMessage("Draw!!");
+			GUI.addPlayer("The game was a Draw!!", playerOnePoints);
 			}
 			
 		}
-		long endTime2 = System.currentTimeMillis();
-		duration2 = (endTime2 - startTime2);
-		System.out.println("End game Check took " + duration2 + " milliseconds");
+		long endTime2 = System.currentTimeMillis(); 
+		System.out.println("End game Check took " + (endTime2 - startTime2)  + " milliseconds");
 	}
 
 
@@ -209,8 +206,7 @@ public class DiceGame {
 			System.out.println("Not a valid input! Either Roll Dice or end.");
 		}
 		long endTime = System.currentTimeMillis();
-		duration = endTime - startTime;
-		System.out.println("Game logic took " + duration + " milliseconds");
+		System.out.println("Game logic took " +(endTime - startTime)  + " milliseconds");
 	}
 		
 
@@ -251,17 +247,4 @@ public class DiceGame {
 		long endTime = System.currentTimeMillis();
 		System.out.println("isPair took " + (endTime - startTime) + " milliseconds");
 	}
-	
-
 }
-
-
-
-
-
-
-
-
-
-
-
