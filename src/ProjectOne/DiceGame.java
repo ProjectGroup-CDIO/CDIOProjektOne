@@ -41,15 +41,15 @@ public class DiceGame {
 
 		while(game){
 
-			System.out.println("Write 'roll' to roll. \nWrite 'end' to end game and view score.");
+			System.out.println("Write 'Roll Dice' to roll. \nWrite 'end' to end game and view score.");
 			String i = "";
 			i = GUI.getUserButtonPressed(null, "Roll Dice"); // used for GUI. Returns the string "Roll Dice"
 			isPlayer(playerOne,playerTwo);
 			//i = CS.nextLine(); // used for TUI
-			int diceOne = newDice.rollDice(); //integer is created to represent faceValue of die
-			int diceTwo = newDice.rollDice();
+			int dieOne = newDice.rollDice(); //integer is created to represent faceValue of die
+			int dieTwo = newDice.rollDice();
 
-			gameLogic(i, diceOne, diceTwo);
+			gameLogic(i, dieOne, dieTwo);
 			//z++;
 		}
 
@@ -206,7 +206,7 @@ public class DiceGame {
 			System.out.println("Player Two Points: "+ playerTwoPoints);
 		}
 		else{
-			System.out.println("Not a valid input! Either r or end.");
+			System.out.println("Not a valid input! Either Roll Dice or end.");
 		}
 		long endTime = System.currentTimeMillis();
 		duration = endTime - startTime;
