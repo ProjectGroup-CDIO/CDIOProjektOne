@@ -6,30 +6,30 @@ import boundaryToMatador.GUI;
 
 public class DiceGame {
 
-	static int playerOnePoints = 0;
-	static int playerTwoPoints = 0; //Here each players points are stored as a variable int
+	int playerOnePoints = 0;
+	int playerTwoPoints = 0; //Here each players points are stored as a variable int
 
-	static boolean playerOne = true;
-	static boolean playerTwo = false; // these two variables are used to determine which players turn it is
+	boolean playerOne = true;
+	boolean playerTwo = false; // these two variables are used to determine which players turn it is
 
 
-	static boolean chanceToWinOne = false;
-	static boolean chanceToWinTwo = false;
+	boolean chanceToWinOne = false;
+	boolean chanceToWinTwo = false;
 
-	static boolean confirmVicOne = false;
-	static boolean confirmVicTwo = false;
+	boolean confirmVicOne = false;
+	boolean confirmVicTwo = false;
 
-	static boolean firstRollOne = true;
-	static boolean firstRollTwo = true;
+	boolean firstRollOne = true;
+	boolean firstRollTwo = true;
 	
-	static boolean wasLastRollDoubleSix = false;
+	boolean wasLastRollDoubleSix = false;
 
-	static boolean game = true; //This variable is used to determine whether or not the game is still active
+	boolean game = true; //This variable is used to determine whether or not the game is still active
 
-	static long duration = 0;
-	static long duration2 = 0;
+	long duration = 0;
+	long duration2 = 0;
 	
-	public static void main(String[] args) {
+	public void game() {
 		System.out.println("This is a game, roll the dice if you are Player One");
 		//Scanner CS = new Scanner(System.in); // the scanner is activated for TUI
 
@@ -59,7 +59,7 @@ public class DiceGame {
 
 
 
-	private static void checkForWinner() {
+	public void checkForWinner() {
 		if (game != true)
 		{
 			long startTime2 = System.currentTimeMillis();
@@ -92,7 +92,7 @@ public class DiceGame {
 
 
 
-	private static void gameLogic(String i, int diceOne, int diceTwo) {
+	public void gameLogic(String i, int diceOne, int diceTwo) {
 		long startTime = System.currentTimeMillis();
 		if(i.equals("end")){
 			System.out.println(playerOnePoints);
@@ -105,13 +105,6 @@ public class DiceGame {
 			
 			GUI.setDice(diceOne, diceTwo);
 
-			/*
-			int[] array1 = {2,2,6,4,5,5,5,5,5,5,5,5,5};
-			int[] array2 = {3,2,6,6,4,4,4,4,4,4,4,4,4};
-			int DiceOne = array1[z];
-			int DiceTwo = array2[z];
-<<<<<<< HEAD
-			*/
 			System.out.println("First Die: "+ diceOne + " Second Die: " + diceTwo);
 
 
@@ -237,7 +230,7 @@ public class DiceGame {
 	}
 
 
-	public static void isPair(int a, int b){
+	public void isPair(int a, int b){
 		if(playerOne){
 			if(a == b)
 				playerOne = true;
