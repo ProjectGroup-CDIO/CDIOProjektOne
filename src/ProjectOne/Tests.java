@@ -2,9 +2,11 @@ package ProjectOne;
 
 public class Tests {
 
-	public void main(String[] args) {
+	public static void main(String[] args) {
 		
 		DiceGame game = new DiceGame();
+		
+		game.game();
 		
 		Die newDice = new Die();
 		
@@ -14,9 +16,9 @@ public class Tests {
 		int fours = 0;
 		int fivers = 0;
 		int sixers = 0;
-		
+		int a;
 		for(int i = 0; i < 10000000; i++){
-			int a =newDice.rollDice();
+			a = newDice.rollDice();
 			
 			if(a == 1){
 				ones = ones + 1;

@@ -10,18 +10,18 @@ public class DiceGame {
 	boolean playerOne = true;
 	boolean playerTwo = false; // these two variables are used to determine which players turn it is
 
-	 boolean chanceToWinOne = false;
+	boolean chanceToWinOne = false;
 	boolean chanceToWinTwo = false;
-	
+
 	boolean confirmVicOne = false;
 	boolean confirmVicTwo = false;
-	
+
 	boolean wasLastRollDoubleSix = false;
-	
+
 	boolean Game = true; /*This variable is used to determine whether or not the game is 
 	still active*/
 
-	public void main(String[] args) {
+	public  void game() {
 		System.out.println("This is a game, roll the dice if you are player one");
 
 		Scanner CS = new Scanner(System.in); // the scanner is activated. 
@@ -29,17 +29,17 @@ public class DiceGame {
 		Die newDice = new Die(); //a new instance of the class Die is initialized
 
 		//int z = 0;
-		
+
 		while(Game){
 			System.out.println("Write 'roll' to roll. \nWrite 'end' to end game and view score.");
-			
+
 			String i = CS.nextLine();
 			int DiceOne = newDice.rollDice();
 			int DiceTwo = newDice.rollDice();
 			gameLogic(i, DiceOne, DiceTwo);
-		//z++;
+			//z++;
 		}
-		
+
 		gameEndCheck();
 	}
 
@@ -62,7 +62,7 @@ public class DiceGame {
 			{
 				System.out.println("Draw");
 			}
-			
+
 		}
 	}
 
@@ -185,13 +185,13 @@ public class DiceGame {
 				playerOne = true;
 			playerTwo = false;
 		}
-		
+
 		if(playerTwo){
 			if(a == b){
 				playerTwo = true;
 				playerOne = false;
 			}
-		
+
 		}
 
 	}
