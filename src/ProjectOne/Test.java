@@ -42,4 +42,6 @@ public class Test {
 		System.out.println("Nr of 5 rolled: "+fivers);
 		System.out.println("Nr of 6 rolled: "+sixers);
 	}
+	
+	
 }
