@@ -89,7 +89,7 @@ public class DiceGame {
 
 
 
-	public void gameLogic(String i, int diceOne, int diceTwo) {
+	public void gameLogic(String i, int dieOne, int dieTwo) {
 		long startTime = System.currentTimeMillis();
 		if(i.equals("end")){
 			System.out.println(playerOnePoints);
@@ -100,21 +100,21 @@ public class DiceGame {
 		}else if(i.equals("Roll Dice")){
 			System.out.println("rolling the dice");
 			
-			GUI.setDice(diceOne, diceTwo);
+			GUI.setDice(dieOne, dieTwo);
 
-			System.out.println("First Die: "+ diceOne + " Second Die: " + diceTwo);
+			System.out.println("First Die: "+ dieOne + " Second Die: " + dieTwo);
 
 
 			if(playerOne){
-				if(diceOne == diceTwo && playerOnePoints >= 40 && diceOne!=1){
+				if(dieOne == dieTwo && playerOnePoints >= 40 && dieOne!=1){
 					if (firstRollOne){
 					confirmVicOne = true;
 					}
 					
-					isPair(diceOne, diceTwo); //isPair is called to give player another turn
+					isPair(dieOne, dieTwo); //isPair is called to give player another turn
 				}
-				else if(diceOne == diceTwo && playerOnePoints < 40){
-					isPair(diceOne, diceTwo);
+				else if(dieOne == dieTwo && playerOnePoints < 40){
+					isPair(dieOne, dieTwo);
 				}
 				else{
 					if (confirmVicTwo){
@@ -124,7 +124,7 @@ public class DiceGame {
 					playerOne = false;
 				}
 
-				if(diceOne == diceTwo && diceOne == 1){
+				if(dieOne == dieTwo && dieOne == 1){
 					confirmVicOne = false;
 					playerOnePoints = 0;
 					playerOne = true;
@@ -132,11 +132,11 @@ public class DiceGame {
 				}
 				else{
 
-					playerOnePoints = playerOnePoints + diceOne+diceTwo;
+					playerOnePoints = playerOnePoints + dieOne+dieTwo;
 					GUI.setBalance("Player One", playerOnePoints);
 
 				}
-				if(diceOne == diceTwo && diceOne == 6){
+				if(dieOne == dieTwo && dieOne == 6){
 					if(chanceToWinOne){
 						confirmVicOne = true;
 						playerTwo = true;
@@ -147,21 +147,21 @@ public class DiceGame {
 					}
 					else{
 						chanceToWinOne = true;
-						isPair(diceOne, diceTwo);
+						isPair(dieOne, dieTwo);
 					}
 
 				}
 				firstRollTwo = true;
 			}
 			else if(playerTwo){
-				if(diceOne == diceTwo && playerTwoPoints >= 40 && diceOne!=1){
+				if(dieOne == dieTwo && playerTwoPoints >= 40 && dieOne!=1){
 					if (firstRollTwo){
 					confirmVicTwo = true;
 					}
-					isPair(diceOne, diceTwo);
+					isPair(dieOne, dieTwo);
 				}
-				else if(diceOne == diceTwo && playerTwoPoints < 40){
-					isPair(diceOne, diceTwo);
+				else if(dieOne == dieTwo && playerTwoPoints < 40){
+					isPair(dieOne, dieTwo);
 				}
 				else{
 					if (confirmVicOne){
@@ -171,18 +171,18 @@ public class DiceGame {
 					playerTwo = false;
 				}
 
-				if(diceOne == diceTwo && diceOne == 1){
+				if(dieOne == dieTwo && dieOne == 1){
 					playerTwoPoints = 0;
 					confirmVicTwo = false;
 					playerOne = false;
 					playerTwo = true;
 				}
 				else{
-					playerTwoPoints = playerTwoPoints + diceOne+diceTwo;
+					playerTwoPoints = playerTwoPoints + dieOne+dieTwo;
 					GUI.setBalance("Player Two", playerTwoPoints);
 
 				}
-				if(diceOne == diceTwo && diceOne == 6){
+				if(dieOne == dieTwo && dieOne == 6){
 					if(chanceToWinTwo){
 						confirmVicTwo = true;
 						if (confirmVicOne == true){
@@ -194,7 +194,7 @@ public class DiceGame {
 					else
 					{
 						chanceToWinTwo = true;
-						isPair(diceOne, diceTwo);
+						isPair(dieOne, dieTwo);
 					}
 				}
 				firstRollOne = true;
